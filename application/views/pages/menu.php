@@ -46,59 +46,8 @@
               switch ($this->session->userdata('RolUser')) {
                 case 0:
                   $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                           <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                           <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a>  
-                           <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>                         
-                           <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                           <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                           <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
+                           <a href="Articulos"> <li href="Articulos"><i class="material-icons">user</i> precio tarifa articulos</li></a>';
                            break;
-                  case 1:
-                      $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                      <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                      <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a> 
-                      <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>
-                      <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                      <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                      <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
-                      break;
-                  case 2:
-                      $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                      <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                      <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a>
-                      <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>
-                      <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                      <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                      <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
-                      break;
-                case 3:
-                    $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                    <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                    <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a> 
-                    <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>
-                    <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                    <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                    <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
-                  break;
-                  case 4:
-                    $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                    <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                    <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a> 
-                    <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>
-                    <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                    <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                    <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
-                  break;
-                  default:
-                  $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                  <a href="Articulos"> <li href="Articulos"><i class="material-icons">attach_money</i> precio tarifa articulos</li></a>
-                  <a href="Clientes"> <li href="Clientes"><i class="material-icons">monetization_on</i> precio tarifa clientes</li></a>   
-                  <a href="Tarifas"> <li href="Tarifas"><i class="material-icons">class</i>Tarifas</li></a>                         
-                  <a href="Usuarios"> <li href="Usuarios"><i class="material-icons">account_box</i> usuarios</li></a>
-                  <a href="#" onclick="modalPass()"> <li href="#"><i class="material-icons">lock</i> Cambiar Contraseña</li></a>
-                  <li><a onclick="ModalInfo()" href="javascript:void(0)"><i class="material-icons">info</i> Acerca de</a></li>
-                  <a href="#" > <li href="#" id="Salir"><i class="material-icons">exit_to_app</i> cerrar sesión</li></a>';
-                  break;
               }
               echo $menu;
             ?>               
