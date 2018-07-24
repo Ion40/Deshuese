@@ -43,7 +43,7 @@ class Login_controller extends CI_Controller
                 $this->session->set_userdata($sessiondata);
 
                 if ($this->session->userdata) {
-                    redirect('Main');
+                    redirect('Usuarios');
                 }
 
 

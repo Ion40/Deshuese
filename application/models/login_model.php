@@ -13,7 +13,7 @@ class Login_model extends CI_Model
     {
         if ($name != FALSE && $pass != FALSE) {
             $this->db->where('Usuario', $name);
-            $this->db->where('Password', $pass);
+            $this->db->where('Password', md5($pass));
 
             $query = $this->db->get('usuarios');
 

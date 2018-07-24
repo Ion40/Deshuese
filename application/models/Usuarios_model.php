@@ -16,10 +16,16 @@ class Usuarios_model extends CI_Model
         return 0;
     }
 
-    public function guardarUsuario()
+    public function guardarUsuario($user,$nombre,$pass,$rol)
     {
         date_default_timezone_set("America/Managua");
         $data = array(
+            "Usuario" => $user,
+            "Nombre" => $nombre,
+            "Password" => md5($pass),
+            "Permiso" => $rol,
+            "FechaRegistro" => date("Y-m-d"),
+            "Estado" => 1
         );
         $this->db->insert('usuarios',$data);
     }

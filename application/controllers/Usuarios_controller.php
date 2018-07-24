@@ -16,11 +16,21 @@ class Usuarios_controller extends CI_Controller
 
 	public function index()
 	{
+	    $data["user"] = $this->Usuarios_model->getUsuarios();
 		$this->load->view("header/header");
 		$this->load->view("pages/menu");
-		$this->load->view("Usuarios/Usuarios");
+		$this->load->view("Usuarios/Usuarios",$data);
 		$this->load->view("footer/footer");
+        $this->load->view("jsview/jsUsuarios");
 	}
-}
 
+	public function guardarUsuario()
+    {
+        $username = $this->input->get_post("username");
+        $Nombre = $this->input->get_post("Nombre");
+        $Pass = $this->input->get_post("Pass");
+        $permiso = $this->input->get_post("permiso");
+        $this->Usuarios_model->guardarUsuario($username,$Nombre,$Pass,$permiso);
+    }
+}
 ?>

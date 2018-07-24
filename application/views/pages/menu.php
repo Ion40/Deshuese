@@ -1,6 +1,6 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-        <img style="" width="100%" src="<?PHP echo base_url();?>assets/img/LOGOS_DELMOR.png"  >
+        <img style="" width="100%" src="<?PHP echo base_url();?>assets/img/LOGOS_DELMOR.png">
         <br>
         <header id="MenuFondo" class="demo-drawer-header">
             <div id="user" class="row">
@@ -13,22 +13,19 @@
                   <?php 
                       switch ($this->session->userdata('RolUser')) {
                         case 0:
-                           echo "Gerente General";
+                           echo "Administrador";
                           break;
                         
                           case 1:
-                            echo "Gerente de Ventas";
+                            echo "Gerencia";
                           break;
 
                           case 2:
-                            echo "Supervisor";
+                            echo "Contabilidad";
                           break;
 
                         case 3:
-                             echo "Finanzas";
-                          break;
-                          case 4:
-                          echo "Jefe Sector Turístico";
+                             echo "Produccion";
                           break;
                           default:
                           echo "Administrador";
@@ -46,7 +43,10 @@
               switch ($this->session->userdata('RolUser')) {
                 case 0:
                   $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                           <a href="Articulos"> <li href="Articulos"><i class="material-icons">user</i> precio tarifa articulos</li></a>';
+                           <a href="Usuarios"> <li href="Usuarios"><i class="material-icons">person_add</i> 
+                           Usuarios</li></a>
+                            <a href="salir"> <li href="salir"><i class="material-icons">power_settings_new</i> 
+                           Salir</li></a>';
                            break;
               }
               echo $menu;

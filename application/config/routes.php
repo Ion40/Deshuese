@@ -13,3 +13,4 @@ $route['salir'] = 'login_controller/Salir';
 // FIN LOGIN
 
 $route["Usuarios"] = "Usuarios_controller";
+$route["SaveUsers"] = "Usuarios_controller/guardarUsuario";
