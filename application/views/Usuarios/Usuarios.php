@@ -4,7 +4,7 @@
 
 <main class="mdl-layout__content mdl-color--grey-100">
 	<div class="mdl-grid demo-content">
-		<div class="row TextColor center">BIENVENIDO</div>
+		<div class="row TextColor center">Usuarios</div>
 		<div class="row" style="width:100%">
 			<div class="container">
 				<div class="Buscar row column">

@@ -5274,6 +5274,10 @@ a.waves-effect .waves-ripple {
   width: 60% !important;
   max-height: 50% !important;
 }
+#mdlnewDeshuese.modal{
+  margin-top: -70px;
+  height: 95% !important;
+}
  #Dfre, #SPdet, #cxpdet,#MxPdet, #CanjeSPDdet, #RepFechadet, #MaVinetadet{
    width: 72% !important;
    max-height:90% !important;

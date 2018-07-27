@@ -42,11 +42,23 @@
             //<a href="Reserva"> <li href="Reserva"><i class="material-icons">monetization_on</i> Reserva</li></a>
               switch ($this->session->userdata('RolUser')) {
                 case 0:
-                  $menu = '<a href="Main"><li href="Main"><i class="material-icons">home</i> inventario</li></a>
-                           <a href="Usuarios"> <li href="Usuarios"><i class="material-icons">person_add</i> 
-                           Usuarios</li></a>
-                            <a href="salir"> <li href="salir"><i class="material-icons">power_settings_new</i> 
-                           Salir</li></a>';
+                  $menu = '<a href="Main">
+                              <li href="Main"><i class="material-icons">home</i> inventario</li>
+                              </a>
+                           <a href="Usuarios"> 
+                              <li href="Usuarios"><i class="material-icons">person_add</i> Usuarios</li></a>
+                           <a href="Deshuese"> 
+                             <li href="Deshuese"><i class="material-icons">group_work</i> Deshuese</li>
+                           </a>
+                           <a href="#"> 
+                             <li href="#"><i class="material-icons">swap_horiz</i> Distribucion Recursos</li>
+                           </a>
+                           <a href="#"> 
+                             <li href="#"><i class="material-icons">assignment</i> Reportes</li>
+                           </a><br><br>
+                            <a href="salir">
+                             <li href="salir"><i class="material-icons">power_settings_new</i>Salir</li>
+                           </a>';
                            break;
               }
               echo $menu;

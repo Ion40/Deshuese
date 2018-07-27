@@ -14,3 +14,9 @@ $route['salir'] = 'login_controller/Salir';
 
 $route["Usuarios"] = "Usuarios_controller";
 $route["SaveUsers"] = "Usuarios_controller/guardarUsuario";
+
+// Deshuese
+$route["Deshuese"] = "Deshuese_controller";
+$route["GuardarEncabezado"] = "Deshuese_controller/SaveEncabezado";
+$route["GuardarDeshuese"] = "Deshuese_controller/SaveDeshuese";
+// Fin Deshuese

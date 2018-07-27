@@ -459,6 +459,7 @@ _:-ms-input-placeholder,
     background: #42515B;
     font-family: 'robotoblack';
     font-weight: 500;
+    padding: 10px 10px;
 }
 
 .contenedor {
@@ -1642,4 +1643,16 @@ select.swal2-select{
 .form{
 	margin-top: 100px;
 	padding: 0px 0px;
+}
+
+.selected1{
+    background:#D25A56;
+}
+
+.selected td{
+   color: #D25A56;
+}
+#tblMateriaPrima td{
+    padding: 5px!important;
+    font-size: small;
 }

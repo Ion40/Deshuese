@@ -36,10 +36,10 @@
 <script src="<?PHP echo base_url();?>assets/js/chosen.jquery.js"></script>
 <script>
 
-    $('.datepicker1').pickadate({
+    $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year
-        format: 'dd-mm-yyyy',// Formats dateformat:dd/mm/yyyy
+        format: 'yyyy-mm-dd',// Formats dateformat:dd/mm/yyyy
         monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
         weekdaysFull: ['DO','LU','MA','MI','JU','VI','SA'],
