@@ -50,8 +50,8 @@
                            <a href="Deshuese"> 
                              <li href="Deshuese"><i class="material-icons">group_work</i> Deshuese</li>
                            </a>
-                           <a href="#"> 
-                             <li href="#"><i class="material-icons">swap_horiz</i> Distribucion Recursos</li>
+                           <a href="Distribucion"> 
+                             <li href="Distribucion"><i class="material-icons">swap_horiz</i> Distribucion Recursos</li>
                            </a>
                            <a href="#"> 
                              <li href="#"><i class="material-icons">assignment</i> Reportes</li>

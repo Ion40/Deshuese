@@ -17,6 +17,7 @@ class Deshuese_controller extends CI_Controller
     public function index()
     {
         $data["mp"] = $this->Deshuese_model->getmateriaPrima();
+        $data["ds"] = $this->Deshuese_model->getInfoDeshuese();
         $this->load->view("header/header");
         $this->load->view("pages/menu");
         $this->load->view("Deshuese/Deshuese",$data);

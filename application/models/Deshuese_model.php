@@ -55,5 +55,15 @@ class Deshuese_model extends CI_Model
             $this->db->insert("Deshuese", $insertDes);
         }
     }
+
+    public function getInfoDeshuese()
+    {
+        $query = $this->db->get("view_Deshuese");
+        if ($query->num_rows() > 0)
+        {
+            return $query->result_array();
+        }
+        return 0;
+    }
 }
 ?>

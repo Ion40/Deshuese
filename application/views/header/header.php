@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="<?PHP echo base_url();?>assets/img/LOGOS_DELMOR.png" />
-    <title>DELMOR- IWEB</title>
+    <title>DELMOR- DESHUESE</title>
     
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">

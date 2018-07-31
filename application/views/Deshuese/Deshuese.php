@@ -24,15 +24,30 @@
                 <table class="table striped RobotoR" id="tblDeshueses">
                     <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>Nombre</th>
-                        <th>Permisos</th>
-                        <th>Fecha Registro</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
+                        <th>No Deshuese</th>
+                        <th>Fecha</th>
+                        <th>Descripcion</th>
+                        <th>Masa Deshuesada</th>
+                        <th>Costo Total</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                        if(!$ds)
+                        {}else{
+                            foreach ($ds as $key) {
+                                echo "
+                                    <tr>
+                                      <td>".$key["No_DH"]."</td>
+                                      <td>".$key["Fecha"]."</td>
+                                      <td>".$key["Descripcion_DH"]."</td>
+                                      <td>".number_format($key["Masa_Deshuesada"],2)."</td>
+                                      <td>".number_format($key["Costo_Total"],2)."</td>
+                                    </tr>
+                                ";
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
@@ -59,7 +74,7 @@
                         <span class="left">Descripcion Deshuese:</span><input type="text" id="DescDH">
                     </div>
                     <div class="col s3 m3 l3">
-                        <span class="left">Precio Bruto (kg):</span><input type="text" id="PB">
+                        <span class="left">Masa Deshuesada (kg):</span><input type="text" id="PB">
                     </div>
                     <div class="col s3 m3 l3">
                         <span class="left">Costo Total:</span><input type="text" id="CT">

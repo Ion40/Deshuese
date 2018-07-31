@@ -20,3 +20,8 @@ $route["Deshuese"] = "Deshuese_controller";
 $route["GuardarEncabezado"] = "Deshuese_controller/SaveEncabezado";
 $route["GuardarDeshuese"] = "Deshuese_controller/SaveDeshuese";
 // Fin Deshuese
+
+// Distribucion de Recursos
+$route["Distribucion"] = "DistribucionRecursos_controller";
+$route["GuardarDistribucion"] = "DistribucionRecursos_controller/saveDistribucion";
+//Fin Distribucion de Recursos

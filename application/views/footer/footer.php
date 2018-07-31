@@ -31,6 +31,7 @@
 <script src="<?PHP echo base_url();?>assets/js/materialize.js"></script>
 
 <script src="<?PHP echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
+<script src="<?PHP echo base_url(); ?>assets/js/extensions/jquery.numeric.min.js"></script>
 
 <script src="<?PHP echo base_url();?>assets/js/bootstrap.js"></script> 
 <script src="<?PHP echo base_url();?>assets/js/chosen.jquery.js"></script>

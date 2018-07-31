@@ -1,5 +1,16 @@
 <script>
     $(document).ready(function () {
+        $("#searchMain").on("keyup",function () {
+            var t = $("#tblDeshueses").DataTable();
+            t.search(this.value).draw();
+        });
+
+        $("#Ndh").numeric();
+        $("#PB").numeric();
+        $("#CT").numeric();
+        $(".validar").numeric();
+        $(".validar2").numeric();
+
         var table = $("#tblMateriaPrima").DataTable({
             responsive: true,
             "autoWidth":false,
@@ -39,14 +50,51 @@
             ]
         });
 
+        $("#tblDeshueses").DataTable({
+            responsive: true,
+            "autoWidth":false,
+            "info": true,
+            "sort":true,
+            "paging":true,
+            "ordering":false,
+            "order": [
+                [0, "asc"]
+            ],
+            /*"dom": 'T<"clear">lfrtip',
+             "tableTools": {
+                 "sSwfPath": "< echo base_url(); ?>assets/data/swf/copy_csv_xls_pdf.swf",
+             },*/
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+                [10,20,100, -1],
+                [10,20,100, "Todo"]
+            ],
+            "language": {
+                "info": "Registro _START_ a _END_ de _TOTAL_ deshueses",
+                "infoEmpty": "Registro 0 a 0 de 0 deshueses",
+                "zeroRecords": "No se encontro coincidencia",
+                "infoFiltered": "(filtrado de _MAX_ registros en total)",
+                "emptyTable": "NO HAY DATOS DISPONIBLES",
+                "lengthMenu": '_MENU_ ',
+                "search": '<i class=" material-icons">search</i>',
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última ",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+
         $("#dropMP").change(function () {
             var texto = $("#dropMP option:selected").text();
             var valor = $("#dropMP option:selected").val();
-            var input = "<input onkeydown='habilitar()' onmouseenter='habilitar()' " +
-                "type='text' name='calculobase' id='calculobase"+valor+"'>";
+            var input = "<input class='validar' onkeydown='habilitar()' onmouseenter='habilitar()' " +
+                "type='number' name='calculobase' id='calculobase"+valor+"'>";
 
-            var input2 = "<input onkeydown='Calcular()' onmouseenter='habilitar()' " +
-                "type='text' name='Kilos' id='Kilos"+valor+"'>";
+            var input2 = "<input class='validar2' onkeydown='Calcular()' onmouseenter='habilitar()' " +
+                "type='number' name='Kilos' id='Kilos"+valor+"'>";
 
             var input3 = "<input disabled value='0' class='VTMercado' type='text' name='VTMercado' id='VTMercado"+valor+"'>";
             table.row.add([
@@ -157,8 +205,8 @@ function guardarInfoDes()
         {
             var rb = rendimientoBruto($("#Kilos"+data[0]).val(),$("#PB").val());
             var rd = rendimientoDistribucion($("#VTMercado"+data[0]).val(),suma);
-            var cu = CostoUnitario($("#CT").val(),$("#VTMercado"+data[0]).val()/suma,$("#Kilos"+data[0]).val());
-            var ta = $("#CT").val()*$("#VTMercado"+data[0]).val()/suma/$("#Kilos"+data[0]).val()*$("#Kilos"+data[0]).val();
+            var cu = CostoUnitario($("#CT").val(),rd,$("#Kilos"+data[0]).val());
+            var ta = cu * $("#Kilos"+data[0]).val();
             ta.toFixed(2);
             array[i] =
              $("#Ndh").val()+","+data[0]+","+data[1]+","+cu+","+$("#calculobase"+data[0]).val()+","+rb+","+rd+","
@@ -237,7 +285,7 @@ function guardarInfoDes()
 
     function CostoUnitario(costoTotal,rd, kilos)
     {
-        var calculo = costoTotal*rd/kilos;
+        var calculo = (costoTotal*rd/kilos)/100;
         return calculo.toFixed(3);
     }
     /*Funciones de Calculos */
