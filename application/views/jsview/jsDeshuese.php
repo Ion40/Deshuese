@@ -206,7 +206,7 @@ function guardarInfoDes()
             var rb = rendimientoBruto($("#Kilos"+data[0]).val(),$("#PB").val());
             var rd = rendimientoDistribucion($("#VTMercado"+data[0]).val(),suma);
             var cu = CostoUnitario($("#CT").val(),rd,$("#Kilos"+data[0]).val());
-            var ta = cu * $("#Kilos"+data[0]).val();
+            var ta = totalActual($("#CT").val(),rd,$("#Kilos"+data[0]).val());
             ta.toFixed(2);
             array[i] =
              $("#Ndh").val()+","+data[0]+","+data[1]+","+cu+","+$("#calculobase"+data[0]).val()+","+rb+","+rd+","
@@ -287,6 +287,11 @@ function guardarInfoDes()
     {
         var calculo = (costoTotal*rd/kilos)/100;
         return calculo.toFixed(3);
+    }
+    
+    function totalActual(costoTotal,rd, kilos) {
+        var calculo = ((costoTotal*rd/kilos)/100)*kilos;
+        return calculo;
     }
     /*Funciones de Calculos */
 </script>

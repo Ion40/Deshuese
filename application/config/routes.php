@@ -25,3 +25,6 @@ $route["GuardarDeshuese"] = "Deshuese_controller/SaveDeshuese";
 $route["Distribucion"] = "DistribucionRecursos_controller";
 $route["GuardarDistribucion"] = "DistribucionRecursos_controller/saveDistribucion";
 //Fin Distribucion de Recursos
+
+$route["Reportes"] = "Reportes_controller";
+$route["GetDeshuese/(:any)"] = "Reportes_controller/getDeshuese/$1";
