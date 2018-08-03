@@ -27,5 +27,15 @@ class Reportes_controller extends CI_Controller
     {
         $this->Reportes_model->getDeshuese($NoDH);
     }
+    public function getDeshueseHeader($NoDH)
+    {
+        $this->Reportes_model->getDeshueseHeader($NoDH);
+    }
+
+    public function PrintDeshueseReport($NoDH)
+    {
+        $data["repor"] = $this->Reportes_model->printDesXNo($NoDH);
+        $this->load->view("Reportes/PrintDeshuese",$data);
+    }
 }
 ?>

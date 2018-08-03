@@ -59,48 +59,68 @@
                     <div class="col s4 m4 l4">
                         <button id="btnConsultar" class="btn Btnadd">Consultar <i class="material-icons right">query_builder</i></button>
                     </div>
+                    <div class="col s3 m3 l3 right">
+                        <a onclick="printDesh()" href="javascript:void(0)" class="right" target="_blank">
+                            <i class="material-icons green-text medium">print</i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-         <div class="container">
-             <div class="row">
-                 <div class="col s3 m3 l6 ">
-                     <p class="left" style="font-family: robotoblack;">No DH: <span id="spanNoDH"></span></p>
-                 </div>
-               <div class="col s3 m3 l6 right">
-                   <p class="right" style="font-family: robotoblack;">Fecha: <span id="spanFechaDH"></span></p>
-               </div>
-             </div>
-             <div class="row">
-                 <div class="col s6 m6 l6 left">
-                     <p class="left" style="font-family: robotoblack;">Descripción: <span id="spanDescDH"></span></p>
-                 </div>
-                 <div class="col s3 m3 l3 ">
-                     <p class="" style="font-family: robotoblack;">Masa Deshuesada: <span id="spanMasaDH"></span></p>
-                 </div>
-                 <div class="col s3 m3 l3">
-                     <p class="right" style="font-family: robotoblack;">Costo Total: <span id="spanCosto"></span></p>
-                 </div>
-             </div>
-         </div>
-         <div class="row">
+         <div id="Imprimir">
              <div class="col s12 m12 l12">
-                 <table id="tblReporteDH" class="table compact">
-                     <thead>
-                        <tr>
-                            <th>MateriaPrima</th> <!--Concatenar matPrima y Descripcion-->
-                            <th>Obtenido kg</th>
-                            <th>Costo Actual</th>
-                            <th>Valor Total C$</th>
-                            <th>Valor Total %</th>
-                            <th>Asig Costo T</th>
-                            <th>Costo Unit kg</th>
-                            <th>Rendi</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                     </tbody>
-                 </table>
+                 <div class="row">
+                     <div class="col s3 m3 l6 ">
+                         <p class="left" style="font-family: robotoblack;">No DH: <span id="spanNoDH"></span></p>
+                     </div>
+                     <div class="col s3 m3 l6 right">
+                         <p class="right" style="font-family: robotoblack;">Fecha: <span id="spanFechaDH"></span></p>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col s6 m6 l6 left">
+                         <p class="left" style="font-family: robotoblack;">Descripción: <span id="spanDescDH"></span></p>
+                     </div>
+                     <div class="col s3 m3 l3 ">
+                         <p class="" style="font-family: robotoblack;">Masa Deshuesada: <span id="spanMasaDH"></span></p>
+                     </div>
+                     <div class="col s3 m3 l3">
+                         <p class="right" style="font-family: robotoblack;">Costo Total: <span id="spanCosto"></span></p>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col s12 m12 l12">
+                     <table id="tblReporteDH" class="table compact">
+                         <thead>
+                         <tr>
+                             <th>MateriaPrima</th> <!--Concatenar matPrima y Descripcion-->
+                             <th>Obtenido kg</th>
+                             <th>Costo Actual</th>
+                             <th>Valor Total C$</th>
+                             <th>Valor Total %</th>
+                             <th>Asig Costo T</th>
+                             <th>Costo Unit kg</th>
+                             <th>Rendi</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         </tbody>
+                         <br><br>
+                         <tfoot>
+                         <tr>
+                             <td><span class="bold">Totales</span></td>
+                             <td><span class="bold" id="sumKilos"></span></td>
+                             <td></td>
+                             <td><span class="bold" id="ValTotalSum"></span></td>
+                             <td><span class="bold" id="totalPorcentaje"></span></td>
+                             <td><span class="bold" id="CostoT"></span></td>
+                             <td></td>
+                             <td><span class="bold" id="RendiTotalSum"></span></td>
+                         </tr>
+                         </tfoot>
+                     </table>
+                 </div>
              </div>
          </div>
        </div>
