@@ -45,6 +45,8 @@
                   $menu = '
                            <a href="Usuarios"> 
                               <li href="Usuarios"><i class="material-icons">person_add</i> Usuarios</li></a>
+                              <a href="Materia_Prima"> 
+                              <li href="Materia_Prima"><i class="material-icons">archive</i> Materia Prima</li></a>
                            <a href="Deshuese"> 
                              <li href="Deshuese"><i class="material-icons">group_work</i> Deshuese</li>
                            </a>

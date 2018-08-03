@@ -30,3 +30,7 @@ $route["Reportes"] = "Reportes_controller";
 $route["GetDeshuese/(:any)"] = "Reportes_controller/getDeshuese/$1";
 $route["GetDeshueseHeader/(:any)"] = "Reportes_controller/getDeshueseHeader/$1";
 $route["PrintDeshuese/(:any)"] = "Reportes_controller/PrintDeshueseReport/$1";
+
+//Materia Prima
+$route["Materia_Prima"] = "MateriaPrima_controller";
+//Fin Materia Prima
