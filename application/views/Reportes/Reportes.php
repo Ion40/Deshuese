@@ -21,7 +21,7 @@
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="#" class="center">
+                            <a href="#" class="center" id="disRecursos">
                                 <i class="material-icons large">assessment</i>
                             </a>
                             <p class="center" style="font-family: robotoblack">Distribución de Recursos</p>
@@ -125,6 +125,71 @@
          </div>
        </div>
     </div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <a href="javascript:void(0)" class="modal-close right"><i class="material-icons">close</i></a>
+        <h4 class="center TextColor" id="">Reporte Distribución de Recursos</h4>
+        <div class="row center">
+            <div class="container">
+                <div class="Buscar row column">
+                    <div class="col s1 m1 l1 offset-l3 offset-m2">
+                    </div>
+                    <div class="input-field col s11 m6 l5">
+                        <input id="fechaDis" type="text" class="datepicker">
+                        <label for="fechaDis">Fecha de Distribucíon</label>
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <button id="btnConsultarDis" class="btn Btnadd">Consultar <i class="material-icons right">query_builder</i></button>
+                    </div>
+                    <div class="col s3 m3 l3 right">
+                        <a onclick="" href="javascript:void(0)" class="right" target="_blank">
+                            <i class="material-icons green-text medium">print</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="" class="">
+            <div class="col s12 m12 l12 container">
+                <div class="row">
+                    <div class="col s3 m3 l4">
+                        <p class="left" style="font-family: robotoblack;">Fecha: <span id="spanFechaDis"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s4 m4 l4">
+                        <p class="left" style="font-family: robotoblack;">Masa Obtenida: <span id="spanMasaDis"></span></p>
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <p class="center" style="font-family: robotoblack;">Total Kg: <span id="spanTotalKil"></span></p>
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <p class="right" style="font-family: robotoblack;">Total Aplicado: <span id="spanTotaApli"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <table id="tblReporteDist" class="table compact">
+                        <thead>
+                        <tr>
+                            <th>MateriaPrima</th>
+                            <th>Descripcion</th>
+                            <th>Valor Kg</th>
+                            <th>Porcentaje Aplicado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <br><br>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>
 
 

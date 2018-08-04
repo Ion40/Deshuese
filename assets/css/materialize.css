@@ -5270,6 +5270,10 @@ a.waves-effect .waves-ripple {
   border-radius: 2px;
   will-change: top, opacity;
 }
+#mdlnewMateria.modal{
+  width: 40% !important;
+  max-height: 30% !important;
+}
 #mdlnewUser.modal{
   width: 60% !important;
   max-height: 50% !important;

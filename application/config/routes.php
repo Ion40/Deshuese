@@ -31,6 +31,11 @@ $route["GetDeshuese/(:any)"] = "Reportes_controller/getDeshuese/$1";
 $route["GetDeshueseHeader/(:any)"] = "Reportes_controller/getDeshueseHeader/$1";
 $route["PrintDeshuese/(:any)"] = "Reportes_controller/PrintDeshueseReport/$1";
 
+$route["GetDistRecursos/(:any)"] = "Reportes_controller/getDistRecursos/$1";
+
 //Materia Prima
 $route["Materia_Prima"] = "MateriaPrima_controller";
+$route["GuardarMteriaPrima"] = "MateriaPrima_controller/SaveMatPrim";
+$route["ActualizarMteriaPrima/(:any)"] = "MateriaPrima_controller/UpdateMatPrim/$1";
+$route["ActualizarEstMteriaPrima/(:any)/(:any)"] = "MateriaPrima_controller/UpdateEstado/$1/$2";
 //Fin Materia Prima

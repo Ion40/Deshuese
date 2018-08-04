@@ -74,8 +74,69 @@
         });
     }
 
-    function printDesh() {
+    function printDesh()
+    {
         var num = $("#search").val();
-        window.open("PrintDeshuese/"+num,"_blank");
+       if (num == "")
+       {
+          swal({
+              text: "Aun no ha ingresado un número de deshuese",
+              type: "info"
+          });
+       }else{
+           window.open("PrintDeshuese/"+num,"_blank");
+       }
+    }
+
+    /**************************************************************************/
+$("#disRecursos").click(function () {
+    $("#modal2").openModal();
+});
+
+$("#btnConsultarDis").on("click", function () {
+    var fecha = $("#fechaDis").val();
+    recorrerDis(fecha);
+    $("#tblReporteDist").DataTable({
+        "ajax": "GetDistRecursos/" + fecha,
+        "destroy": true,
+        "ordering": false,
+        "paging": false,
+        "info":false,
+        "searching": false,
+        "columns": [
+            {"data": "Materia_Prima"},
+            {"data": "Descripcion"},
+            {"data": "Valor_Kg"},
+            {"data": "Porcentaje_Apli"}
+        ]
+    });
+});
+
+    function recorrerDis(fecha)
+    {
+        $.ajax({
+            url: "GetDistRecursos/"+fecha,
+            type: "GET",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function(datos)
+            {
+                if (true)
+                {
+                    $.each( datos, function( key, value ) {
+                        $("#spanFechaDis").html(value[0].Fecha_Distribucion);
+                        $("#spanMasaDis").html(value[0].Masa_Obtenida);
+                        $("#spanTotalKil").html(value[0].ValorKg);
+                        $("#spanTotaApli").html(value[0].Porcentaje+"%");
+                    });
+                }else {
+                    $("#spanFechaDis").html("");
+                    $("#spanMasaDis").html("");
+                    $("#spanTotalKil").html("");
+                    $("#spanTotaApli").html("");
+                }
+            }
+        });
     }
 </script>

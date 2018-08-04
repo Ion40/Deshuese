@@ -37,5 +37,10 @@ class Reportes_controller extends CI_Controller
         $data["repor"] = $this->Reportes_model->printDesXNo($NoDH);
         $this->load->view("Reportes/PrintDeshuese",$data);
     }
+    //////////////////////////////////////////////////////////////////////////////////
+    public function getDistRecursos($Fecha)
+    {
+        $this->Reportes_model->getDistRecursos($Fecha);
+    }
 }
 ?>

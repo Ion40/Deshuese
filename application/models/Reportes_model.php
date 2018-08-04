@@ -61,6 +61,25 @@ class Reportes_model extends CI_Model
         }
         return 0;
     }
-
+/****************************************************************************************************/
+    public function getDistRecursos($Fecha)
+    {
+        $query = $this->db->query("CALL usp_ReporteDistRecursos('" . $Fecha . "')");
+        $json = array();
+        $i = 0;
+        foreach ($query->result_array() as $key) {
+            $json["data"][$i]["Masa_Obtenida"] = $key["Masa_Obtenida"];
+            $json["data"][$i]["Materia_Prima"] = $key["Materia_Prima"];
+            $json["data"][$i]["Descripcion"] = $key["Descripcion"];
+            $json["data"][$i]["Valor_Kg"] = $key["Valor_Kg"];
+            $json["data"][$i]["Porcentaje_Apli"] = $key["Porcentaje_Apli"];
+            $json["data"][$i]["Fecha_Distribucion"] = $key["Fecha_Distribucion"];
+            $json["data"][$i]["Fecha_Creacion"] = $key["Fecha_Creacion"];
+            $json["data"][$i]["ValorKg"] = $key["ValorKg"];
+            $json["data"][$i]["Porcentaje"] = $key["Porcentaje"];
+            $i++;
+        }
+        echo json_encode($json);
+    }
 }
 ?>

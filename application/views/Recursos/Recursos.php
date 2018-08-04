@@ -40,7 +40,7 @@
                                   <td>".$key["Fecha_Distribucion"]."</td>
                                   <td>".$key["Masa_Obtenida"]."</td>
                                   <td>".$key["Valor_Kg"]."</td>
-                                  <td>".$key["Porcentaje_Apli"]." %</td>
+                                  <td>".number_format($key["Porcentaje_Apli"],2)." %</td>
                                 </tr>
                                ";
                          }
