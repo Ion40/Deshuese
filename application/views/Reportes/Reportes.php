@@ -54,7 +54,7 @@
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="#" class="center" id="">
+                            <a href="#" class="center" id="Rangos">
                                 <i class="material-icons large">date_range</i>
                             </a>
                             <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
@@ -118,12 +118,15 @@
                          <tr>
                              <th>MateriaPrima</th> <!--Concatenar matPrima y Descripcion-->
                              <th>Obtenido kg</th>
-                             <th>Costo Actual</th>
+                             <th>Calculo Base</th>
                              <th>Valor Total C$</th>
                              <th>Valor Total %</th>
                              <th>Asig Costo T</th>
                              <th>Costo Unit kg</th>
                              <th>Rendi</th>
+                             <th>Prec Ant Kilo</th>
+                             <th>Prec Act Kilo</th>
+                             <th>Dif</th>
                          </tr>
                          </thead>
                          <tbody>
@@ -139,6 +142,9 @@
                              <td><span class="bold" id="CostoT"></span></td>
                              <td></td>
                              <td><span class="bold" id="RendiTotalSum"></span></td>
+                             <td></td>
+                             <td></td>
+                             <td></td>
                          </tr>
                          </tfoot>
                      </table>
@@ -200,6 +206,58 @@
                             <th>Descripcion</th>
                             <th>Valor Kg</th>
                             <th>Porcentaje Aplicado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <br><br>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <a href="javascript:void(0)" class="modal-close right"><i class="material-icons">close</i></a>
+        <h4 class="center TextColor" id="">Reporte Deshuese por Rango de Fechas</h4>
+        <div class="row center">
+            <div class="container">
+                <div class="Buscar row column">
+                    <div class="col s1 m1 l1 offset-l3 offset-m2">
+                    </div>
+                    <div class="input-field col s11 m6 l3">
+                        <input id="fecha1" type="text" class="datepicker">
+                        <label for="fecha1">Fecha de inicio</label>
+                    </div>
+                    <div class="input-field col s11 m6 l3">
+                        <input id="fecha2" type="text" class="datepicker">
+                        <label for="fecha2">Fecha final</label>
+                    </div>
+                    <div class="col s4 m4 l4">
+                        <button id="btnConsultarRangos" class="btn Btnadd">Consultar <i class="material-icons right">query_builder</i></button>
+                    </div>
+                    <div class="col s3 m3 l3 right">
+                        <a onclick="" href="javascript:void(0)" class="right" target="_blank">
+                            <i class="material-icons green-text medium">print</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="" class="">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <table id="tblReporteRangos" class="table compact">
+                        <thead>
+                        <tr>
+                            <th>No_DH</th>
+                            <th>Fecha</th>
+                            <th>Descripcion</th>
+                            <th>Peso Bruto</th>
+                            <th>Costo Total</th>
+                            <th>Imprimir</th>
                         </tr>
                         </thead>
                         <tbody>

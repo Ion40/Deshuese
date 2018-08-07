@@ -24,6 +24,9 @@ class Reportes_model extends CI_Model
             $json["data"][$i]["Precio_Bruto"] = $key["Precio_Bruto"];
             $json["data"][$i]["Costo_Total"] = $key["Costo_Total"];
             $json["data"][$i]["Materia_Prima"] = $key["Materia_Prima"] . " " . $key["Descripcion"];
+            $json["data"][$i]["Prec_Ant_Kilo"] = number_format($key["Prec_Ant_Kilo"], 2);
+            $json["data"][$i]["Prec_Act_Kilo"] = number_format($key["Prec_Act_Kilo"], 2);
+            $json["data"][$i]["Dif"] = number_format($key["Dif"], 2);
             $json["data"][$i]["Kilos"] = number_format($key["Kilos"], 3);
             $json["data"][$i]["Calculo_Base"] = number_format($key["Calculo_Base"], 3);
             $json["data"][$i]["Valor_Total_Mercado"] = number_format($key["Valor_Total_Mercado"], 3);
@@ -90,6 +93,25 @@ class Reportes_model extends CI_Model
             return $query->result_array();
         }
         return 0;
+    }
+
+    public function getDeshueseXFechas($fecha1,$fecha2)
+    {
+        $query = $this->db->query("CALL usp_ReportDeshFechas('".$fecha1."','".$fecha2."')");
+        $json = array();
+        $i = 0;
+        foreach ($query->result_array() as $key) {
+            $json["data"][$i]["No_DH"] = $key["No_DH"];
+            $json["data"][$i]["Descripcion_DH"] = $key["Descripcion_DH"];
+            $json["data"][$i]["Precio_Bruto"] = number_format($key["Precio_Bruto"],2);
+            $json["data"][$i]["Costo_Total"] = number_format($key["Costo_Total"],2);
+            $json["data"][$i]["Fecha"] = $key["Fecha"];
+            $json["data"][$i]["Print"] = '<a onclick="printDeshRango('."'".$key["No_DH"]."'".')" href="javascript:void(0)" class="center" target="_blank">
+                                            <i class="material-icons green-text">print</i>
+                                        </a>';
+            $i++;
+        }
+        echo json_encode($json);
     }
 }
 ?>

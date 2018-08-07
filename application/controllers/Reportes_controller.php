@@ -48,5 +48,11 @@ class Reportes_controller extends CI_Controller
         $data["repor"] = $this->Reportes_model->getDistribucionXFecha($Fecha);
         $this->load->view("Reportes/PrintDistribucion",$data);
     }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    public function getDeshueseXFechas($fecha1,$fecha2)
+    {
+        $this->Reportes_model->getDeshueseXFechas($fecha1,$fecha2);
+    }
 }
 ?>

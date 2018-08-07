@@ -10,38 +10,49 @@
 
     $("#btnConsultar").on("click", function () {
         var num = $("#search").val();
-        recorrer(num);
-        $("#tblReporteDH").DataTable({
-            "ajax": "GetDeshuese/" + num,
-            "destroy": true,
-            "ordering": false,
-            "paging": false,
-            "info":false,
-            "searching": false,
-            "columns": [
-                {"data": "Materia_Prima"},
-                {"data": "Kilos"},
-                {"data": "Calculo_Base"},
-                {"data": "Valor_Total_Mercado"},
-                {"data": "Rendimiento_D"},
-                {"data": "Total_Actual"},
-                {"data": "Costo_Unitario"},
-                {"data": "Rendimiento_B"}
-            ],
-            "initComplete": function () {
-                var table = $('#tblReporteDH').DataTable().column(3).data().sum();
-                var redniPercent = $('#tblReporteDH').DataTable().column(4).data().sum();
-                var rendi = $('#tblReporteDH').DataTable().column(7).data().sum();
-                var sumkilos = $('#tblReporteDH').DataTable().column(1).data().sum();
-                var CostoT = $('#tblReporteDH').DataTable().column(5).data().sum();
-
-                $("#ValTotalSum").html(table);
-                $("#RendiTotalSum").html(rendi.toFixed(2));
-                $("#totalPorcentaje").html(redniPercent.toFixed(0));
-                $("#sumKilos").html(sumkilos.toFixed(3));
-                $("#CostoT").html(CostoT.toFixed(3));
-            }
+        if (num == "")
+        {
+            swal({
+            text: "Ingrese un numero de deshuese para efectuar la consulta!",
+            type: "info"
         });
+        }else{
+            recorrer(num);
+            $("#tblReporteDH").DataTable({
+                "ajax": "GetDeshuese/" + num,
+                "destroy": true,
+                "ordering": false,
+                "paging": false,
+                "info":false,
+                "searching": false,
+                "columns": [
+                    {"data": "Materia_Prima"},
+                    {"data": "Kilos"},
+                    {"data": "Calculo_Base"},
+                    {"data": "Valor_Total_Mercado"},
+                    {"data": "Rendimiento_D"},
+                    {"data": "Total_Actual"},
+                    {"data": "Costo_Unitario"},
+                    {"data": "Rendimiento_B"},
+                    {"data": "Prec_Ant_Kilo"},
+                    {"data": "Prec_Act_Kilo"},
+                    {"data": "Dif"}
+                ],
+                "initComplete": function () {
+                    var table = $('#tblReporteDH').DataTable().column(3).data().sum();
+                    var redniPercent = $('#tblReporteDH').DataTable().column(4).data().sum();
+                    var rendi = $('#tblReporteDH').DataTable().column(7).data().sum();
+                    var sumkilos = $('#tblReporteDH').DataTable().column(1).data().sum();
+                    var CostoT = $('#tblReporteDH').DataTable().column(5).data().sum();
+
+                    $("#ValTotalSum").html(table);
+                    $("#RendiTotalSum").html(rendi.toFixed(2));
+                    $("#totalPorcentaje").html(redniPercent.toFixed(0));
+                    $("#sumKilos").html(sumkilos.toFixed(3));
+                    $("#CostoT").html(CostoT.toFixed(3));
+                }
+            });
+        }
     });
 
     function recorrer(num)
@@ -95,21 +106,29 @@ $("#disRecursos").click(function () {
 
 $("#btnConsultarDis").on("click", function () {
     var fecha = $("#fechaDis").val();
-    recorrerDis(fecha);
-    $("#tblReporteDist").DataTable({
-        "ajax": "GetDistRecursos/" + fecha,
-        "destroy": true,
-        "ordering": false,
-        "paging": false,
-        "info":false,
-        "searching": false,
-        "columns": [
-            {"data": "Materia_Prima"},
-            {"data": "Descripcion"},
-            {"data": "Valor_Kg"},
-            {"data": "Porcentaje_Apli"}
-        ]
-    });
+    if(fecha == "")
+    {
+        swal({
+            text: "Ingrese una fecha para efectuar la consulta!",
+            type: "info"
+        });
+    }else{
+        recorrerDis(fecha);
+        $("#tblReporteDist").DataTable({
+            "ajax": "GetDistRecursos/" + fecha,
+            "destroy": true,
+            "ordering": false,
+            "paging": false,
+            "info":false,
+            "searching": false,
+            "columns": [
+                {"data": "Materia_Prima"},
+                {"data": "Descripcion"},
+                {"data": "Valor_Kg"},
+                {"data": "Porcentaje_Apli"}
+            ]
+        });
+    }
 });
 
     function recorrerDis(fecha)
@@ -146,11 +165,40 @@ $("#btnConsultarDis").on("click", function () {
         if (fecha == "")
         {
             swal({
-                text: "Aun no ha ingresado un número de deshuese",
+                text: "Aun no ha ingresado una fecha de distribucion",
                 type: "info"
             });
         }else{
             window.open("PrintDistribucionRec/"+fecha,"_blank");
         }
+    }
+
+    /*********************************************************************************************** */
+    $("#Rangos").click(function () {
+        $("#modal3").openModal();
+      });
+
+    $("#btnConsultarRangos").on("click", function () { 
+        var fecha1 = $("#fecha1").val(), fecha2 = $("#fecha2").val();
+        $("#tblReporteRangos").DataTable({
+            "ajax": "GetDeshueseXFechas/"+fecha1+"/"+fecha2,
+            "destroy": true,
+            "paging": false,
+            "ordering": false,
+            "info": false,
+            "columns":[
+                {"data":"No_DH"},
+                {"data":"Fecha"},
+                {"data":"Descripcion_DH"},
+                {"data":"Precio_Bruto"},
+                {"data":"Costo_Total"},
+                {"data": "Print"}
+            ]
+        });  
+     }); 
+
+     function printDeshRango(No_DH)
+    {
+        window.open("PrintDeshuese/"+No_DH,"_blank");
     }
 </script>

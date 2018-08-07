@@ -57,7 +57,7 @@
             padding:2px 2px ;*/
         }
         .encabezado{
-            margin:5px;
+            margin:10px !important;
             padding: 5px;
             font-weight:800;
         }
@@ -216,8 +216,8 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
         <table class="table-produccion">
             <thead>
             <tr class="encabezado">
-                <td>Masa Deshuesada:
-                    <?php
+                <td  width="150px">Masa Deshuesada:</td>
+                <td><?php
                     $MasaDes;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
@@ -225,10 +225,10 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                         }
                         echo "<span>".number_format($MasaDes,2)."</span>";
                     }
-                    ?>
-                </td>
-                <td>Total costo
-                    <?php
+                    ?></td>
+                <td width="100px">Total costo:</td>
+                <td>
+                <?php
                     $CostoT;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
@@ -236,24 +236,26 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                         }
                         echo "<span>".number_format($CostoT,2)."</span>";
                     }
-                    ?>
-                </td>
+                    ?></td>
             </tr>
             <br>
             <tr class="encabezado">
-                <td>MateriaPrima</td> <!--Concatenar matPrima y Descripcion-->
-                <td>Obtenido kg</td>
-                <td>Costo Actual</td>
-                <td>Valor Total C$</td>
-                <td>Valor Total %</td>
-                <td>Asig Costo T</td>
-                <td>Costo Unit kg</td>
-                <td>Rendi</td>
+                <td  style='text-align: center;'>MateriaPrima</td> <!--Concatenar matPrima y Descripcion-->
+                <td  style='text-align: center;'>Obtenido kg</td>
+                <td  style='text-align: center;'>Calculo Base</td>
+                <td  style='text-align: center;'>Valor Total C$</td>
+                <td  style='text-align: center;'>Valor Total %</td>
+                <td  style='text-align: center;'>Asig Costo T</td>
+                <td  style='text-align: center;'>Costo Unit kg</td>
+                <td  style='text-align: center;'>Rendi</td>
+                <td  style='text-align: center;'>Prec Ant Kilo</td>
+                <td  style='text-align: center;'>Prec Act Kilo</td>
+                <td  style='text-align: center;'>Dif</td>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td colspan="9" class="negrita">
+                <td colspan="13" class="negrita">
                     <hr class="tablahr"></td>
             </tr>
             <?php
@@ -268,6 +270,9 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                             <td style='text-align: center;'>".number_format($item["Total_Actual"],3)."</td>
                             <td style='text-align: center;'>".$item["Costo_Unitario"]."</td>
                             <td style='text-align: center;'>".$item["Rendimiento_B"]."</td>
+                            <td style='text-align: center;'>".$item['Prec_Ant_Kilo']."</td>
+                            <td style='text-align: center;'>".$item['Prec_Act_Kilo']."</td>
+                            <td style='text-align: center;'>".number_format($item['Dif'],2)."</td>
                         </tr>";
                 }
             }

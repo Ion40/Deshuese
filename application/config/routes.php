@@ -36,6 +36,8 @@ $route["PrintDeshuese/(:any)"] = "Reportes_controller/PrintDeshueseReport/$1";
 $route["GetDistRecursos/(:any)"] = "Reportes_controller/getDistRecursos/$1";
 $route["PrintDistribucionRec/(:any)"] = "Reportes_controller/PrintDistribucion/$1";
 
+$route["GetDeshueseXFechas/(:any)/(:any)"] = "Reportes_controller/getDeshueseXFechas/$1/$2";
+
 //Materia Prima
 $route["Materia_Prima"] = "MateriaPrima_controller";
 $route["GuardarMteriaPrima"] = "MateriaPrima_controller/SaveMatPrim";
