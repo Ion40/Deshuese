@@ -32,7 +32,7 @@
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
                             <a href="#" class="center">
-                                <i class="material-icons large">date_range</i>
+                                <i class="material-icons large">history</i>
                             </a>
                             <p class="center" style="font-family: robotoblack">Deshuese Mes Anterior</p>
                         </div>
@@ -40,6 +40,28 @@
                 </div>
             </div>
 
+        <div class="row center">
+                <div class="col s4 m4 l4">
+                    <div class="card  blue-grey lighten-5 hoverable">
+                        <div class="card-content">
+                            <a href="javascript:void(0)" id="" class="center">
+                                <i class="material-icons large">history</i>
+                            </a>
+                            <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4 m4 l4">
+                    <div class="card  blue-grey lighten-5 hoverable">
+                        <div class="card-content">
+                            <a href="#" class="center" id="">
+                                <i class="material-icons large">date_range</i>
+                            </a>
+                            <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 </main>
 <!-- Modal Structure -->
@@ -143,7 +165,7 @@
                         <button id="btnConsultarDis" class="btn Btnadd">Consultar <i class="material-icons right">query_builder</i></button>
                     </div>
                     <div class="col s3 m3 l3 right">
-                        <a onclick="" href="javascript:void(0)" class="right" target="_blank">
+                        <a onclick="printDist()" href="javascript:void(0)" class="right" target="_blank">
                             <i class="material-icons green-text medium">print</i>
                         </a>
                     </div>

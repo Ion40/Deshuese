@@ -40,5 +40,10 @@ class Deshuese_controller extends CI_Controller
         $deshuese = $this->input->get_post("deshuese");
        $this->Deshuese_model->saveDeshuese($deshuese);
     }
+
+    public function actualizarPrecioAnt($No_DH)
+    {
+        $this->Deshuese_model->actualizarPrecioAnt($No_DH);
+    }
 }
 ?>

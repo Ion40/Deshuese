@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100131
 File Encoding         : 65001
 
-Date: 2018-08-04 15:09:05
+Date: 2018-08-07 07:51:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `deshuese` (
   `Costo_Unitario` double DEFAULT NULL,
   `Total_Actual` double DEFAULT NULL,
   PRIMARY KEY (`IdDeshuese`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of deshuese
@@ -57,6 +57,12 @@ INSERT INTO `deshuese` VALUES ('15', '8774', '86002', 'Cuero', null, '36.48', '3
 INSERT INTO `deshuese` VALUES ('16', '8774', '86003', 'Posta de cerdo', null, '82.62', '77', '39.03', '51.27', '1112.3', '85647.1', '82.62', '91898.09630700003');
 INSERT INTO `deshuese` VALUES ('17', '8774', '86011', 'Recorte', null, '59.22', '55.5', '0.54', '0.51', '15.436', '856.698', '59.221', '914.141391');
 INSERT INTO `deshuese` VALUES ('18', '8774', '86013', 'Posta especial', null, '86.48', '80.591', '26.25', '36.1', '748.192', '60297.541', '86.484', '64706.87101');
+INSERT INTO `deshuese` VALUES ('31', '8784', '86001', 'Grasa', '36.46', '38.42', '34', '11.1', '6.82', '292.376', '9940.784', '38.421', '11233.294974');
+INSERT INTO `deshuese` VALUES ('32', '8784', '86002', 'Cuero', '36.48', '38.41', '34', '9.12', '5.6', '240.166', '8165.644', '38.406', '9223.81992');
+INSERT INTO `deshuese` VALUES ('33', '8784', '86003', 'Posta de cerdo', '82.62', '86.99', '77', '29.3', '40.76', '771.8', '59428.6', '86.987', '67136.23213199999');
+INSERT INTO `deshuese` VALUES ('34', '8784', '86011', 'Recorte', '59.22', '63.49', '55.5', '0.28', '0.28', '7.264', '403.152', '63.49', '461.1909960000001');
+INSERT INTO `deshuese` VALUES ('35', '8784', '86013', 'Posta especial', '86.48', '91.06', '80.591', '5.17', '7.53', '136.2', '10976.494', '91.063', '12402.743571000003');
+INSERT INTO `deshuese` VALUES ('36', '8784', '86108', 'Posta de paleta y pierna cerdo nacional/expo.', null, '79.63', '70.486', '30.64', '39.01', '806.957', '56879.171', '79.625', '64253.78840699999');
 
 -- ----------------------------
 -- Table structure for distribucionrecursos
@@ -98,7 +104,7 @@ CREATE TABLE `encabezado_deshuese` (
   `Precio_Bruto` double DEFAULT NULL,
   `Costo_Total` double DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of encabezado_deshuese
@@ -106,6 +112,7 @@ CREATE TABLE `encabezado_deshuese` (
 INSERT INTO `encabezado_deshuese` VALUES ('1', '8775', '2018-07-31', 'descripcion', '2795.75', '175833.82');
 INSERT INTO `encabezado_deshuese` VALUES ('2', '8798', '2018-07-12', 'Deshuese de cerdo y cortes especiales', '3432.29', '214707.18');
 INSERT INTO `encabezado_deshuese` VALUES ('3', '8774', '2018-06-25', 'Deshuese de cerdo y cortes especiales', '2849.97', '179243.41');
+INSERT INTO `encabezado_deshuese` VALUES ('11', '8784', '2018-07-04', 'xvxcvcxvcx', '2634.01', '164711.07');
 
 -- ----------------------------
 -- Table structure for materiaprima
@@ -117,7 +124,7 @@ CREATE TABLE `materiaprima` (
   `Descripcion` varchar(255) DEFAULT NULL,
   `Estado` bit(1) DEFAULT NULL,
   PRIMARY KEY (`Id_MP`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of materiaprima
@@ -184,6 +191,22 @@ GROUP BY
 	Fecha_Distribucion
 ORDER BY
 	Fecha_Distribucion DESC ;
+
+-- ----------------------------
+-- View structure for view_ultimodeshuese
+-- ----------------------------
+DROP VIEW IF EXISTS `view_ultimodeshuese`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_ultimodeshuese` AS SELECT
+	No_DH,
+	Materia_Prima,
+  Prec_Ant_Kilo,
+	Prec_Act_Kilo
+FROM
+	deshuese
+WHERE
+	No_DH = (select No_DH from deshuese GROUP BY No_DH ORDER BY IdDeshuese Desc limit 1,1)
+ORDER BY
+	IdDeshuese ,Materia_Prima DESC ;
 
 -- ----------------------------
 -- Procedure structure for usp_ReporteDistRecursos

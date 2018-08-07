@@ -19,6 +19,8 @@ $route["SaveUsers"] = "Usuarios_controller/guardarUsuario";
 $route["Deshuese"] = "Deshuese_controller";
 $route["GuardarEncabezado"] = "Deshuese_controller/SaveEncabezado";
 $route["GuardarDeshuese"] = "Deshuese_controller/SaveDeshuese";
+
+$route["ActualizarPrecioAnt/(:any)"] = "Deshuese_controller/actualizarPrecioAnt/$1";
 // Fin Deshuese
 
 // Distribucion de Recursos
@@ -32,6 +34,7 @@ $route["GetDeshueseHeader/(:any)"] = "Reportes_controller/getDeshueseHeader/$1";
 $route["PrintDeshuese/(:any)"] = "Reportes_controller/PrintDeshueseReport/$1";
 
 $route["GetDistRecursos/(:any)"] = "Reportes_controller/getDistRecursos/$1";
+$route["PrintDistribucionRec/(:any)"] = "Reportes_controller/PrintDistribucion/$1";
 
 //Materia Prima
 $route["Materia_Prima"] = "MateriaPrima_controller";

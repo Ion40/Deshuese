@@ -81,5 +81,15 @@ class Reportes_model extends CI_Model
         }
         echo json_encode($json);
     }
+
+    public function getDistribucionXFecha($Fecha)
+    {
+        $query = $this->db->query("CALL usp_ReporteDistRecursos('" . $Fecha . "')");
+        if ($query->num_rows() > 0)
+        {
+            return $query->result_array();
+        }
+        return 0;
+    }
 }
 ?>

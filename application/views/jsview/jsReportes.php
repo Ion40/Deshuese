@@ -139,4 +139,18 @@ $("#btnConsultarDis").on("click", function () {
             }
         });
     }
+
+    function printDist()
+    {
+        var fecha = $("#fechaDis").val();
+        if (fecha == "")
+        {
+            swal({
+                text: "Aun no ha ingresado un número de deshuese",
+                type: "info"
+            });
+        }else{
+            window.open("PrintDistribucionRec/"+fecha,"_blank");
+        }
+    }
 </script>

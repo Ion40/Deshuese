@@ -189,6 +189,21 @@ function guardarEncabezado() {
     });
 }
 
+function ActualizarPrecio()
+{
+    var num =  $("#Ndh").val();
+    $.ajax({
+        url: "ActualizarPrecioAnt/"+num,
+        type: "POST",
+        success:function () {
+            console.log("echo!");
+        },
+        error: function () {
+            console.log("Error");
+          }
+    });
+}
+
 function guardarInfoDes()
 {
     var suma = 0;
@@ -235,6 +250,7 @@ function guardarInfoDes()
             }
         },
         success: function (data) {
+            ActualizarPrecio();
             if (data == true)
             {
                 swal({

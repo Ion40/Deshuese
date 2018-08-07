@@ -65,5 +65,26 @@ class Deshuese_model extends CI_Model
         }
         return 0;
     }
+
+    public function actualizarPrecioAnt($No_DH)
+    {
+        $i =0;
+        $array = array();
+        $query = $this->db->get("view_ultimoDeshuese");
+        foreach ($query->result_array() as $key) {
+            $array[$i]["Materia_Prima"] = $key["Materia_Prima"];
+            $array[$i]["Prec_Ant_Kilo"] = $key["Prec_Ant_Kilo"];
+            $array[$i]["Prec_Act_Kilo"] = $key["Prec_Act_Kilo"];
+            $i++;
+
+            $this->db->where("No_DH",$No_DH);
+            $this->db->where("Materia_Prima",$key["Materia_Prima"]);
+            $data = array(
+                "Prec_Ant_Kilo" =>  $key["Prec_Act_Kilo"]
+            );
+            $this->db->update("deshuese",$data);
+        }
+    }
+
 }
 ?>

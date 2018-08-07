@@ -42,5 +42,11 @@ class Reportes_controller extends CI_Controller
     {
         $this->Reportes_model->getDistRecursos($Fecha);
     }
+
+    public function PrintDistribucion($Fecha)
+    {
+        $data["repor"] = $this->Reportes_model->getDistribucionXFecha($Fecha);
+        $this->load->view("Reportes/PrintDistribucion",$data);
+    }
 }
 ?>
