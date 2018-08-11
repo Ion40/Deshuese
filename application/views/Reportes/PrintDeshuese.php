@@ -216,61 +216,61 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
             <thead>
               <tr id="idtr" class="encabezado" >
                 <?php
-                    for ($i=0; $i <= 6; $i++)
+                    for ($i=0; $i <= 4; $i++)
                     {
                       echo "<td></td>";
                     }
                 ?>
-                <td class="">Costo M.O Directa:</td>
+                <td colspan="3"  style="text-align:right;">Costo M.O Directa:</td>
                 <td style="text-align:center;"><?php
                     $MOD;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
                             $MOD = $item["Gasto_MOD"];
                         }
-                        echo "<span>".number_format($MOD,0)."</span>";
+                        echo "<span>".number_format($MOD,2)."</span>";
                     }
                     ?></td>
               </tr>
               <!---->
-              <tr id="idtr" class="encabezado" rowspan="12">
+              <tr id="idtr" class="encabezado">
                 <?php
-                    for ($i=0; $i <= 6; $i++)
+                    for ($i=0; $i <= 4; $i++)
                     {
                       echo "<td></td>";
                     }
                 ?>
-                <td class="derecha">Gastos Indirectos:</td>
+                <td class=""  style="text-align:right;" colspan="3">Gastos Indirectos:</td>
                 <td style="text-align:center;"><?php
                     $GI;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
                             $GI = $item["GI"];
                         }
-                        echo "<span>".number_format($GI,0)."</span>";
+                        echo "<span>".number_format($GI,2)."</span>";
                     }
                     ?></td>
               </tr>
               <!---->
               <tr>
                 <?php
-                    for ($i=0; $i <= 6; $i++)
+                    for ($i=0; $i <= 5; $i++)
                     {
                       echo "<td></td>";
                     }
                 ?>
-                  <td colspan="2" class="negrita">
+                  <td colspan="3" style="text-align:right;" class="negrita">
                       <hr class="tablahr"></td>
               </tr>
               <tr class="encabezado" style="">
                 <?php
-                    for ($i=0; $i <= 6; $i++)
+                    for ($i=0; $i <= 4; $i++)
                     {
                       echo "<td></td>";
                     }
                 ?>
-                <td style="text-align:center;">Total costo:</td>
-                <td>
+                <td colspan="3" style="text-align:right;">Total costo:</td>
+                <td style="text-align:right;">
                 <?php
                     $CostoT;
                     if(!$repor){}else{
@@ -302,9 +302,9 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                 <td  style='text-align: center;'>Valor Total <br> %</td>
                 <td  style='text-align: center;'>Asig Costo <br> T</td>
                 <td  style='text-align: center;'>Costo Unit <br> kg</td>
-                <td  style='text-align: center; width:10px;'>Rendi</td>
-                <td  style='text-align: center;'>Prec Ant <br> Kilo</td>
-                <td  style='text-align: center;'>Prec Act <br> Kilo</td>
+                <td  style='text-align: center; width:1%;'>Rendi</td>
+                <td  style='text-align: center; width:7%;'>Prec Ant <br> Kilo</td>
+                <td  style='text-align: center; width:7%;'>Prec Act <br> Kilo</td>
                 <td  style='text-align: center;'>Dif</td>
             </tr>
             </thead>
