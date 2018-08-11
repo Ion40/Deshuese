@@ -79,18 +79,8 @@
         <br>
         <div class="row">
             <div class="col s6 m6 l6 left">
-                <select name="dropMP" id="dropMP" class="browser-default chosen-select">
-                    <option value="" disabled selected>Materia Prima</option>
-                    <?php
-                    if (!$mp)
-                    {}
-                    else{
-                        foreach ($mp as $item) {
-                            echo "<option value='".$item["Materia_prima"]."'>".$item["Descripcion"]."</option>";
-                        }
-                    }
-                    ?>
-                </select>
+                <input type="text" name="" value="" id="square">
+                <input type="hidden" name="" value="" id="result">
             </div>
             <div class="col s4 m4 l4 right">
                 <button id="btnDeleteRow" class="btn selected1 small">
@@ -119,4 +109,3 @@
         </div>
     </div>
 </div>
-

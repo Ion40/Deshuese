@@ -269,4 +269,21 @@ $("#btnNewDistribucion").on("click", function () {
          }
      });
  });
+
+ var options = {
+
+url:"GetArticulos",
+getValue:"Cod_Articulo",
+list:{
+  maxNumberOfElements: 15,
+  match:{
+    enabled:true
+  },
+  onSelectItemEvent: function (){
+    var value = $("#square").getSelectedItemData().Descripcion;
+    $("#result").val(value).trigger("change");
+  }
+}
+};
+  $("#square").easyAutocomplete(options);
 </script>

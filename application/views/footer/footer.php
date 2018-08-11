@@ -34,8 +34,9 @@
 <script src="<?PHP echo base_url(); ?>assets/js/sweetalert2.min.js"></script>
 <script src="<?PHP echo base_url(); ?>assets/js/extensions/jquery.numeric.min.js"></script>
 
-<script src="<?PHP echo base_url();?>assets/js/bootstrap.js"></script> 
+<script src="<?PHP echo base_url();?>assets/js/bootstrap.js"></script>
 <script src="<?PHP echo base_url();?>assets/js/chosen.jquery.js"></script>
+<script src="<?PHP echo base_url();?>assets/js/jquery.easy-autocomplete.min.js"></script>
 <script>
 
     $('.datepicker').pickadate({
@@ -52,7 +53,7 @@
         clear: 'Borrar',
         close: 'Cerrar'
     });
-    
+
     var config = {
         '.chosen-select': {
 

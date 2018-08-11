@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="<?PHP echo base_url();?>assets/img/LOGOS_DELMOR.png" />
     <title>DELMOR- DESHUESE</title>
-    
+
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/fuente.css" >
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,6 +32,8 @@
 
     <link rel="stylesheet" href="<?PHP echo base_url();?>assets/css/chosen.css">
     <link rel="stylesheet" href="<?PHP echo base_url();?>assets/css/dataTables.tableTools.css">
+    <link rel="stylesheet" href="<?PHP echo base_url();?>assets/css/easy-autocomplete.min.css">
+    <link rel="stylesheet" href="<?PHP echo base_url();?>assets/css/easy-autocomplete.themes.min.css">
 
     <style>
         #view-source {

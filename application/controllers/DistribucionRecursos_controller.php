@@ -32,5 +32,10 @@ class DistribucionRecursos_controller extends CI_Controller
         $this->DistribucionRecursos_model->saveDistribucion($recursos);
         print_r($recursos);
     }
+
+    public function getArticulos()
+    {
+      $this->DistribucionRecursos_model->getArticulos();
+    }
 }
 ?>

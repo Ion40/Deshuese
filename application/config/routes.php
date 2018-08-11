@@ -26,6 +26,7 @@ $route["ActualizarPrecioAnt/(:any)"] = "Deshuese_controller/actualizarPrecioAnt/
 // Distribucion de Recursos
 $route["Distribucion"] = "DistribucionRecursos_controller";
 $route["GuardarDistribucion"] = "DistribucionRecursos_controller/saveDistribucion";
+$route["GetArticulos"] = "DistribucionRecursos_controller/getArticulos";
 //Fin Distribucion de Recursos
 
 // Distribucion de Recursos Contables

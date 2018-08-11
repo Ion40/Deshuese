@@ -39,5 +39,18 @@ class DistribucionRecursos_model extends CI_Model
         }
         return 0;
     }
+
+    public function getArticulos()
+    {
+      $json = array();
+      $i = 0;
+      $query = $this->db->get("articulos");
+      foreach ($query->result_array() as $key) {
+        $json[$i]["Cod_Articulo"] = $key["Cod_Articulo"];
+        $json[$i]["Descripcion"] = $key["Descripcion"];
+        $i++;
+      }
+      echo json_encode($json);
+    }
 }
 ?>
