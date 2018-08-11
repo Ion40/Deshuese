@@ -78,9 +78,14 @@
             </div>
         <br>
         <div class="row">
-            <div class="col s6 m6 l6 left">
+            <div class="col s3 m3 l2 left">
                 <input type="text" name="" value="" id="square">
                 <input type="hidden" name="" value="" id="result">
+            </div>
+            <div class="col s2 m2 l2">
+                <button class="btn Btnadd" type="button" name="button" id="add">
+                  <i class="material-icons">library_add</i>
+                </button>
             </div>
             <div class="col s4 m4 l4 right">
                 <button id="btnDeleteRow" class="btn selected1 small">

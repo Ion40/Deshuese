@@ -79,9 +79,9 @@
          }
      });
 
-     $("#dropMP").change(function () {
-         var texto = $("#dropMP option:selected").text();
-         var valor = $("#dropMP option:selected").val();
+     $("#add").click(function () {
+         var valor = $("#square").val();
+         var texto = $("#result").val();
          var input = "<input type='number' class='kilos' name='Kilos' onkeyup='Calcular()' id='Kilos"+valor+"'>";
 
          var input2 = "<input type='number' readonly class='aplicados' name='Aplicado' id='Aplicado"+valor+"'>";
@@ -274,6 +274,7 @@ $("#btnNewDistribucion").on("click", function () {
 
 url:"GetArticulos",
 getValue:"Cod_Articulo",
+placeholder: "Buscar",
 list:{
   maxNumberOfElements: 15,
   match:{
