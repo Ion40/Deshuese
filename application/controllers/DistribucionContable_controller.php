@@ -17,9 +17,10 @@
 
    public function index()
    {
+     $data["data"] = $this->DistribucionContable_model->getDistCont();
      $this->load->view("header/header");
      $this->load->view("pages/menu");
-     $this->load->view("Recursos/RecursosContables");
+     $this->load->view("Recursos/RecursosContables",$data);
      $this->load->view("footer/footer");
      $this->load->view("jsview/jsRecursosCont");
    }

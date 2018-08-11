@@ -36,7 +36,24 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                        <?php
+                           if(!$data)
+                           {}else{
+                             foreach ($data as $key) {
+                               echo "<tr>
+                                  <td>".$key["Fecha"]."</td>
+                                  <td>".$key["Salario"]."</td>
+                                  <td>".$key["Vacaciones"]."</td>
+                                  <td>".$key["TreceavoMes"]."</td>
+                                  <td>".$key["Inatec"]."</td>
+                                  <td>".$key["Inss"]."</td>
+                                  <td>".number_format($key["Costo_MOD"],2)."</td>
+                                  <td>".$key["Gasto_Indirecto_Libra"]."</td>
+                                  <td>".number_format($key["Gasto_Indirecto"],2)."</td>
+                               </tr>";
+                             }
+                           }
+                        ?>
                     </tbody>
                 </table>
             </div>

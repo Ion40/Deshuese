@@ -7,6 +7,41 @@ $(document).ready(function () {
   });
 });
 
+$("#tblDistribucionesCont").DataTable({
+      responsive: true,
+      "autoWidth":false,
+      "info": true,
+      "sort":false,
+      "order": [
+          [0, "asc"]
+      ],
+      /*"dom": 'T<"clear">lfrtip',
+       "tableTools": {
+           "sSwfPath": "< echo base_url(); ?>assets/data/swf/copy_csv_xls_pdf.swf",
+       },*/
+      "pagingType": "full_numbers",
+      "lengthMenu": [
+          [10,20,100, -1],
+          [10,20,100, "Todo"]
+      ],
+      "language": {
+          "info": "Registro _START_ a _END_ de _TOTAL_ articulos",
+          "infoEmpty": "Registro 0 a 0 de 0 articulos",
+          "zeroRecords": "No se encontro coincidencia",
+          "infoFiltered": "(filtrado de _MAX_ registros en total)",
+          "emptyTable": "NO HAY DATOS DISPONIBLES",
+          "lengthMenu": '_MENU_ ',
+          "search": '<i class=" material-icons">search</i>',
+          "loadingRecords": "Cargando...",
+          "paginate": {
+              "first": "Primera",
+              "last": "Última ",
+              "next": "Siguiente",
+              "previous": "Anterior"
+          }
+      }
+  });
+
   $("#btnNewDistribucionCont").on("click", function() {
      $("#mdlnewDRecursosCont").openModal();
 });
