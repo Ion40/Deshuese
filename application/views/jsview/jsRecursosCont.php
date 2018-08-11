@@ -6,7 +6,6 @@ $(document).ready(function () {
     "ordering": false
   });
 });
-
 $("#tblDistribucionesCont").DataTable({
       responsive: true,
       "autoWidth":false,
