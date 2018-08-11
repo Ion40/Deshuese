@@ -70,14 +70,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6 m6 l6">
+                    <div class="col s5 m5 l5">
                         <span class="left">Descripcion Deshuese:</span><input type="text" id="DescDH">
                     </div>
                     <div class="col s3 m3 l3">
                         <span class="left">Masa Deshuesada (kg):</span><input type="text" id="PB">
                     </div>
-                    <div class="col s3 m3 l3">
+                    <div class="col s2 m2 l2">
                         <span class="left">Costo Total:</span><input type="text" id="CT">
+                    </div>
+                    <div class="col s2 m2 l2">
+                        <span class="left">Gasto MOD:</span><input readOnly  type="text" id="MOD">
+                    </div>
+                    <div class="col s1 m1 l1">
+                        <span class="left"></span><input type="hidden" id="GIL">
+                        <span class="left"></span><input type="hidden" id="IdDisCont">
                     </div>
                 </div>
             </fieldset>
@@ -125,4 +132,3 @@
         </div>
     </div>
 </div>
-

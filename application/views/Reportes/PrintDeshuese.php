@@ -30,7 +30,6 @@
             font-weight:bold;
             font-family: 'robotoblack'!important;
             text-transform: capitalize!important;
-            border-collapse: collapse;
             width: 1031px;
             margin: 0 auto;
             margin-bottom: 5px;
@@ -38,7 +37,7 @@
 
         table {
             color: black;
-            font-size: 11.3pt;
+            font-size: 11pt;
             font-family: 'robotoblack'!important;
             text-transform: capitalize!important;
             border-collapse: collapse;
@@ -124,11 +123,10 @@
         hr.tablahr{
             border-top: 1px solid #595858;
         }
-
-    </style>
+</style>
     <script>
         $(document).ready(function(){
-          window.print();
+          //window.print();
         });
     </script>
 </head>
@@ -174,12 +172,13 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                 <td class="derecha">Fecha:</td>
                 <td>
                     <?php
+                    date_default_timezone_set("America/Managua");
                     $fecha;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
-                            $fecha = $item["Fecha"];
+                            $fecha = date_format(new DateTime($item["Fecha"]),"d-M-y");
                         }
-                        echo "<span>".$fecha."</span>";
+                        echo "<span style='text-transform:uppercase;'>".$fecha."</span>";
                     }
                     ?>
                 </td>
@@ -215,6 +214,73 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
     <div class="contenedor-secundario">
         <table class="table-produccion">
             <thead>
+              <tr id="idtr" class="encabezado" >
+                <?php
+                    for ($i=0; $i <= 6; $i++)
+                    {
+                      echo "<td></td>";
+                    }
+                ?>
+                <td class="">Costo M.O Directa:</td>
+                <td style="text-align:center;"><?php
+                    $MOD;
+                    if(!$repor){}else{
+                        foreach ($repor as $item) {
+                            $MOD = $item["Gasto_MOD"];
+                        }
+                        echo "<span>".number_format($MOD,0)."</span>";
+                    }
+                    ?></td>
+              </tr>
+              <!---->
+              <tr id="idtr" class="encabezado" rowspan="12">
+                <?php
+                    for ($i=0; $i <= 6; $i++)
+                    {
+                      echo "<td></td>";
+                    }
+                ?>
+                <td class="derecha">Gastos Indirectos:</td>
+                <td style="text-align:center;"><?php
+                    $GI;
+                    if(!$repor){}else{
+                        foreach ($repor as $item) {
+                            $GI = $item["GI"];
+                        }
+                        echo "<span>".number_format($GI,0)."</span>";
+                    }
+                    ?></td>
+              </tr>
+              <!---->
+              <tr>
+                <?php
+                    for ($i=0; $i <= 6; $i++)
+                    {
+                      echo "<td></td>";
+                    }
+                ?>
+                  <td colspan="2" class="negrita">
+                      <hr class="tablahr"></td>
+              </tr>
+              <tr class="encabezado" style="">
+                <?php
+                    for ($i=0; $i <= 6; $i++)
+                    {
+                      echo "<td></td>";
+                    }
+                ?>
+                <td style="text-align:center;">Total costo:</td>
+                <td>
+                <?php
+                    $CostoT;
+                    if(!$repor){}else{
+                        foreach ($repor as $item) {
+                            $CostoT = $item["Costo_Total"];
+                        }
+                        echo "<span>".number_format($CostoT,2)."</span>";
+                    }
+                    ?></td>
+              </tr>
             <tr class="encabezado">
                 <td  width="150px">Masa Deshuesada:</td>
                 <td><?php
@@ -226,30 +292,19 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                         echo "<span>".number_format($MasaDes,2)."</span>";
                     }
                     ?></td>
-                <td width="100px">Total costo:</td>
-                <td>
-                <?php
-                    $CostoT;
-                    if(!$repor){}else{
-                        foreach ($repor as $item) {
-                            $CostoT = $item["Costo_Total"];
-                        }
-                        echo "<span>".number_format($CostoT,2)."</span>";
-                    }
-                    ?></td>
             </tr>
             <br>
-            <tr class="encabezado">
+            <tr class="encabezado" style="padding-top:200px !important;">
                 <td  style='text-align: center;'>MateriaPrima</td> <!--Concatenar matPrima y Descripcion-->
-                <td  style='text-align: center;'>Obtenido kg</td>
-                <td  style='text-align: center;'>Calculo Base</td>
-                <td  style='text-align: center;'>Valor Total C$</td>
-                <td  style='text-align: center;'>Valor Total %</td>
-                <td  style='text-align: center;'>Asig Costo T</td>
-                <td  style='text-align: center;'>Costo Unit kg</td>
-                <td  style='text-align: center;'>Rendi</td>
-                <td  style='text-align: center;'>Prec Ant Kilo</td>
-                <td  style='text-align: center;'>Prec Act Kilo</td>
+                <td  style='text-align: center;'>Obtenido <br> kg</td>
+                <td  style='text-align: center;'>Calculo <br> Base</td>
+                <td  style='text-align: center;'>Valor Total <br> C$</td>
+                <td  style='text-align: center;'>Valor Total <br> %</td>
+                <td  style='text-align: center;'>Asig Costo <br> T</td>
+                <td  style='text-align: center;'>Costo Unit <br> kg</td>
+                <td  style='text-align: center; width:10px;'>Rendi</td>
+                <td  style='text-align: center;'>Prec Ant <br> Kilo</td>
+                <td  style='text-align: center;'>Prec Act <br> Kilo</td>
                 <td  style='text-align: center;'>Dif</td>
             </tr>
             </thead>

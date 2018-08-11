@@ -32,7 +32,10 @@ class Deshuese_controller extends CI_Controller
         $DescDH = $this->input->get_post("DescDH");
         $PB = $this->input->get_post("PB");
         $CT = $this->input->get_post("CT");
-        $this->Deshuese_model->saveEncabezado($Ndh,$FechaDH,$DescDH,$PB,$CT);
+        $MOD = $this->input->get_post("MOD");
+        $GI = $this->input->get_post("GI");
+        $ID = $this->input->get_post("ID");
+        $this->Deshuese_model->saveEncabezado($Ndh,$FechaDH,$DescDH,$PB,$CT,$MOD,$GI,$ID);
     }
 
     public function SaveDeshuese()

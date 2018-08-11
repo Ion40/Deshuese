@@ -50,6 +50,8 @@ class Reportes_model extends CI_Model
             $json["data"][$i]["Precio_Bruto"] = number_format($key["Precio_Bruto"],2);
             $json["data"][$i]["Costo_Total"] = number_format($key["Costo_Total"],2);
             $json["data"][$i]["Fecha"] = $key["Fecha"];
+            $json["data"][$i]["Gasto_MOD"] = number_format($key["Gasto_MOD"],0);
+            $json["data"][$i]["GI"] = number_format($key["GI"],2);
             $i++;
         }
         echo json_encode($json);
@@ -112,6 +114,16 @@ class Reportes_model extends CI_Model
             $i++;
         }
         echo json_encode($json);
+    }
+
+    public function printDesXFechas($fecha1,$fecha2)
+    {
+        $query = $this->db->query("CALL usp_ReportDeshFechas('".$fecha1."','".$fecha2."')");
+        if ($query->num_rows() > 0)
+        {
+            return $query->result_array();
+        }
+        return 0;
     }
 }
 ?>

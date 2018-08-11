@@ -73,6 +73,8 @@
                         $("#spanMasaDH").html(value[0].Precio_Bruto);
                         $("#spanFechaDH").html(value[0].Fecha);
                         $("#spanCosto").html(value[0].Costo_Total);
+                        $("#spanMOD").html(value[0].Gasto_MOD);
+                        $("#spanGI").html(value[0].GI);
                     });
                 }else {
                     $("#spanNoDH").html("");
@@ -178,27 +180,68 @@ $("#btnConsultarDis").on("click", function () {
         $("#modal3").openModal();
       });
 
-    $("#btnConsultarRangos").on("click", function () { 
+    $("#btnConsultarRangos").on("click", function () {
         var fecha1 = $("#fecha1").val(), fecha2 = $("#fecha2").val();
-        $("#tblReporteRangos").DataTable({
-            "ajax": "GetDeshueseXFechas/"+fecha1+"/"+fecha2,
-            "destroy": true,
-            "paging": false,
-            "ordering": false,
-            "info": false,
-            "columns":[
-                {"data":"No_DH"},
-                {"data":"Fecha"},
-                {"data":"Descripcion_DH"},
-                {"data":"Precio_Bruto"},
-                {"data":"Costo_Total"},
-                {"data": "Print"}
-            ]
-        });  
-     }); 
+        if(fecha1 == "" && fecha2 == ""){
+            swal({
+                text: "Debe ingresar una fecha de inicio y una fecha final para efectuar la consulta",
+                type: "info"
+            });
+        }else if(fecha1 == ""){
+            swal({
+                text: "Debe ingresar una fecha de inicio",
+                type: "info"
+            });
+        }else if(fecha2 == ""){
+            swal({
+                text: "Debe ingresar una fecha final",
+                type: "info"
+            });
+        }else{
+            $("#tblReporteRangos").DataTable({
+                "ajax": "GetDeshueseXFechas/"+fecha1+"/"+fecha2,
+                "destroy": true,
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "columns":[
+                    {"data":"No_DH"},
+                    {"data":"Fecha"},
+                    {"data":"Descripcion_DH"},
+                    {"data":"Precio_Bruto"},
+                    {"data":"Costo_Total"},
+                    {"data": "Print"}
+                ]
+            });
+        }
+     });
 
      function printDeshRango(No_DH)
     {
         window.open("PrintDeshuese/"+No_DH,"_blank");
     }
+
+function printDeshXFechas() {
+  var fecha1 = $("#fecha1").val(),
+    fecha2 = $("#fecha2").val();
+  if (fecha1 == "" && fecha2 == "") {
+    swal({
+      text: "Debe ingresar una fecha de inicio y una fecha final para efectuar la consulta",
+      type: "info"
+    });
+  } else if (fecha1 == "") {
+    swal({
+      text: "Debe ingresar una fecha de inicio",
+      type: "info"
+    });
+  } else if (fecha2 == "") {
+    swal({
+      text: "Debe ingresar una fecha final",
+      type: "info"
+    });
+  } else {
+    window.open("PrintDeshueseRango/" + fecha1 + "/" + fecha2, "_blank");
+  }
+}
+
 </script>

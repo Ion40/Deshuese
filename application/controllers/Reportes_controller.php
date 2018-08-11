@@ -54,5 +54,13 @@ class Reportes_controller extends CI_Controller
     {
         $this->Reportes_model->getDeshueseXFechas($fecha1,$fecha2);
     }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    public function PrintDeshueseRangos($fecha1,$fecha2)
+    {
+        $data["repo"] = $this->Reportes_model->printDesXFechas($fecha1,$fecha2);
+        $this->load->view("Reportes/PrintDeshueseRango",$data);
+    }
+
 }
 ?>

@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function () {
+      Ultima();
         $("#searchMain").on("keyup",function () {
             var t = $("#tblDeshueses").DataTable();
             t.search(this.value).draw();
@@ -157,12 +158,22 @@ $("#btnSaveDeshuese").on("click", function () {
 
 function guardarEncabezado() {
     espere();
+    var kilos = 0, gi = 0;
+    $(".validar2").each(function(){
+      kilos += Number($(this).val());
+    });
+
+    gi = Number($("#GIL").val()) * kilos;
+
     var form_data = {
         Ndh: $("#Ndh").val(),
         FechaDH: $("#FechaDH").val(),
         DescDH: $("#DescDH").val(),
         PB: $("#PB").val(),
-        CT: $("#CT").val()
+        CT: $("#CT").val(),
+        MOD: $("#MOD").val(),
+        GI: gi,
+        ID: $("#IdDisCont").val()
     };
     $.ajax({
         url: "GuardarEncabezado",
@@ -304,10 +315,32 @@ function guardarInfoDes()
         var calculo = (costoTotal*rd/kilos)/100;
         return calculo.toFixed(3);
     }
-    
+
     function totalActual(costoTotal,rd, kilos) {
         var calculo = ((costoTotal*rd/kilos)/100)*kilos;
         return calculo;
     }
     /*Funciones de Calculos */
+
+    function Ultima()
+    {
+        $.ajax({
+            url: "UltimaDistribucion",
+            type: "GET",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function(datos)
+            {
+                if (true)
+                {
+                    $.each( datos, function( key, value ) {
+                        $("#MOD").val(value[0].Costo_MOD);
+                        $("#GIL").val(value[0].Gasto_Indirecto_Libra);
+                        $("#IdDisCont").val(value[0].Id_Dis_Rec);
+                    });
+                }
+            }
+        });
+    }
 </script>

@@ -28,6 +28,12 @@ $route["Distribucion"] = "DistribucionRecursos_controller";
 $route["GuardarDistribucion"] = "DistribucionRecursos_controller/saveDistribucion";
 //Fin Distribucion de Recursos
 
+// Distribucion de Recursos Contables
+$route["Distribucion_Contable"] = "DistribucionContable_controller";
+$route["SaveDistribucionCont"] = "DistribucionContable_controller/saveDistribucionCont";
+$route["UltimaDistribucion"] = "DistribucionContable_controller/ultimaDistribucion";
+//Fin Distribucion de Recursos Contables
+
 $route["Reportes"] = "Reportes_controller";
 $route["GetDeshuese/(:any)"] = "Reportes_controller/getDeshuese/$1";
 $route["GetDeshueseHeader/(:any)"] = "Reportes_controller/getDeshueseHeader/$1";
@@ -37,6 +43,8 @@ $route["GetDistRecursos/(:any)"] = "Reportes_controller/getDistRecursos/$1";
 $route["PrintDistribucionRec/(:any)"] = "Reportes_controller/PrintDistribucion/$1";
 
 $route["GetDeshueseXFechas/(:any)/(:any)"] = "Reportes_controller/getDeshueseXFechas/$1/$2";
+$route["PrintDeshueseRango/(:any)/(:any)"] = "Reportes_controller/PrintDeshueseRangos/$1/$2";
+
 
 //Materia Prima
 $route["Materia_Prima"] = "MateriaPrima_controller";

@@ -10,12 +10,12 @@
                 <div class="col l10 center">
                   <span class="Loggen"><?php echo $this->session->userdata('UserN');?></span><br><br>
                   <span class="Loggen">
-                  <?php 
+                  <?php
                       switch ($this->session->userdata('RolUser')) {
                         case 0:
                            echo "Administrador";
                           break;
-                        
+
                           case 1:
                             echo "Gerencia";
                           break;
@@ -43,17 +43,20 @@
               switch ($this->session->userdata('RolUser')) {
                 case 0:
                   $menu = '
-                           <a href="Usuarios"> 
+                           <a href="Usuarios">
                               <li href="Usuarios"><i class="material-icons">person_add</i> Usuarios</li></a>
-                              <a href="Materia_Prima"> 
+                              <a href="Materia_Prima">
                               <li href="Materia_Prima"><i class="material-icons">archive</i> Materia Prima</li></a>
-                           <a href="Deshuese"> 
+                              <a href="Distribucion">
+                                <li href="Distribucion"><i class="material-icons">swap_horiz</i> Distribucion Recursos</li>
+                              </a>
+                              <a href="Distribucion_Contable">
+                                <li href="Distribucion_Contable"><i class="material-icons">attach_money</i> Distribucion Contable</li>
+                              </a>
+                           <a href="Deshuese">
                              <li href="Deshuese"><i class="material-icons">group_work</i> Deshuese</li>
                            </a>
-                           <a href="Distribucion"> 
-                             <li href="Distribucion"><i class="material-icons">swap_horiz</i> Distribucion Recursos</li>
-                           </a>
-                           <a href="Reportes"> 
+                           <a href="Reportes">
                              <li href="Reportes"><i class="material-icons">assignment</i> Reportes</li>
                            </a><br><br>
                             <a href="salir">
@@ -62,7 +65,7 @@
                            break;
               }
               echo $menu;
-            ?>               
+            ?>
           </ul>
        </div>
     </div>
@@ -76,7 +79,7 @@
       <div class="input-field col s6 m6 s6">
         <input type="hidden" name="idUser" id="idUser" value="<?php echo $this->session->userdata('id');?>">
         <input type="password" id="newPass" name="newPass" placeholder="Escribe la nueva contraseña">
-        <label for="lblnewPass" id="lblnewPass">Nueva Contraseña</label>  
+        <label for="lblnewPass" id="lblnewPass">Nueva Contraseña</label>
       </div>
      <p>
       <input type="checkbox" id="showPass" class="filled-in"/>

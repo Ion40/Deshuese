@@ -92,10 +92,16 @@
          <div id="Imprimir">
              <div class="col s12 m12 l12">
                  <div class="row">
-                     <div class="col s3 m3 l6 ">
+                     <div class="col s3 m3 l3 ">
                          <p class="left" style="font-family: robotoblack;">No DH: <span id="spanNoDH"></span></p>
                      </div>
-                     <div class="col s3 m3 l6 right">
+                     <div class="col s3 m3 l3 ">
+                         <p class="left" style="font-family: robotoblack;">Costo MOD: <span id="spanMOD"></span></p>
+                     </div>
+                     <div class="col s3 m3 l3 ">
+                         <p class="left" style="font-family: robotoblack;">GI: <span id="spanGI"></span></p>
+                     </div>
+                     <div class="col s3 m3 l3 right">
                          <p class="right" style="font-family: robotoblack;">Fecha: <span id="spanFechaDH"></span></p>
                      </div>
                  </div>
@@ -239,7 +245,7 @@
                         <button id="btnConsultarRangos" class="btn Btnadd">Consultar <i class="material-icons right">query_builder</i></button>
                     </div>
                     <div class="col s3 m3 l3 right">
-                        <a onclick="" href="javascript:void(0)" class="right" target="_blank">
+                        <a onclick="printDeshXFechas()" href="javascript:void(0)" class="right" target="_blank">
                             <i class="material-icons green-text medium">print</i>
                         </a>
                     </div>
@@ -271,5 +277,3 @@
 </div>
 
 </div>
-
-
