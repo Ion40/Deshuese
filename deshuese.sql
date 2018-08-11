@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100131
 File Encoding         : 65001
 
-Date: 2018-08-11 10:49:36
+Date: 2018-08-11 11:22:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -241,6 +241,27 @@ GROUP BY
 	Fecha_Distribucion
 ORDER BY
 	Fecha_Distribucion DESC ;
+
+-- ----------------------------
+-- View structure for view_distribucion_contable
+-- ----------------------------
+DROP VIEW IF EXISTS `view_distribucion_contable`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_distribucion_contable` AS SELECT
+  ed.No_DH,
+	dc.Id_Dis_Rec,
+	dc.Salario,
+	dc.Vacaciones,
+	dc.TreceavoMes,
+	dc.Inatec,
+	dc.Inss,
+	dc.Costo_MOD,
+	dc.Gasto_Indirecto_Libra,
+	ed.GI AS Gasto_Indirecto,
+	dc.Fecha
+FROM
+	encabezado_deshuese ed
+INNER JOIN distribucion_contable dc ON ed.Id_Dis_Cont = dc.Id_Dis_Rec
+GROUP BY ed.No_DH ;
 
 -- ----------------------------
 -- View structure for view_ultimodeshuese
