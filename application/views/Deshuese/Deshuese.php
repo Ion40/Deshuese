@@ -82,7 +82,7 @@
                         <span class="left">Masa Deshuesada (kg):</span><input type="text" id="PB">
                     </div>
                     <div class="col s2 m2 l2">
-                        <span class="left">Costo Total:</span><input type="text" id="CT">
+                        <span class="left">Costo Total:</span><input readOnly type="text" id="CT">
                     </div>
                     <div class="col s2 m2 l2">
                         <span class="left">Gasto MOD:</span><input readOnly  type="text" id="MOD">

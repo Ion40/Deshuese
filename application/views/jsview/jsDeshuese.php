@@ -95,7 +95,7 @@
             var input = "<input class='validar' onkeydown='habilitar()' onmouseenter='habilitar()' " +
                 "type='number' name='calculobase' id='calculobase"+valor+"'>";
 
-            var input2 = "<input class='validar2' onkeydown='Calcular()' onmouseenter='habilitar()' " +
+            var input2 = "<input class='validar2' onkeyup='calculate()' onkeydown='Calcular()' onmouseenter='habilitar()' " +
                 "type='number' name='Kilos' id='Kilos"+valor+"'>";
 
             var input3 = "<input disabled value='0' class='VTMercado' type='text' name='VTMercado' id='VTMercado"+valor+"'>";
@@ -156,7 +156,19 @@ $("#btnSaveDeshuese").on("click", function () {
         guardarEncabezado();
         guardarInfoDes();
 });
+/**********************************************************/
+function calculate() {
+  var kilos = 0, gi = 0, suma = 0;
+  $(".validar2").each(function(){
+    kilos += Number($(this).val());
+  });
 
+  gi = Number($("#GIL").val()) * kilos;
+
+  suma = Number($("#CPDH").val()) + Number($("#MOD").val()) + gi;
+  $("#CT").val(suma.toFixed(2));
+}
+/***********************************************************/
 function guardarEncabezado() {
     var kilos = 0, gi = 0;
     $(".validar2").each(function(){
