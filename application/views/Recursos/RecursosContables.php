@@ -32,7 +32,6 @@
                         <th>Inss</th>
                         <th>MOD</th>
                         <th>GI por libra</th>
-                        <th>GI</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,7 +48,6 @@
                                   <td>".$key["Inss"]."</td>
                                   <td>".number_format($key["Costo_MOD"],2)."</td>
                                   <td>".$key["Gasto_Indirecto_Libra"]."</td>
-                                  <td>".number_format($key["Gasto_Indirecto"],2)."</td>
                                </tr>";
                              }
                            }
@@ -78,6 +76,11 @@
             </div>
         <br>
         <div class="row">
+          <div class="col s4 m4 l4 right">
+              <button id="btnDeleteRow" class="btn selected1 small">
+                  Eliminar<i class="material-icons right">delete</i>
+              </button>
+          </div>
             <br><br>
             <div class="col s12 m12 l12">
                 <table class="table striped RobotoR compact" id="tblDistRecursosCont">

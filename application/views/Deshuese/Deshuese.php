@@ -29,6 +29,7 @@
                         <th>Descripcion</th>
                         <th>Masa Deshuesada</th>
                         <th>Costo Total</th>
+                        <th>Costo Producto DH</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,7 @@
                                       <td>".$key["Descripcion_DH"]."</td>
                                       <td>".number_format($key["Masa_Deshuesada"],2)."</td>
                                       <td>".number_format($key["Costo_Total"],2)."</td>
+                                      <td>".number_format($key["Costo_Prod_DH"],2)."</td>
                                     </tr>
                                 ";
                             }

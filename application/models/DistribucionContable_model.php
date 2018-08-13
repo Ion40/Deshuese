@@ -47,19 +47,9 @@ class DistribucionContable_model extends CI_Model
      echo json_encode($json);
   }
 
-  public function ActualizarGI()
-  {
-      $this->db->order_by("Id_Dis_Rec","DESC");
-      $this->db->limit(1);
-      $query = $this->db->get("distribucion_contable");
-      foreach ($query->result_array() as $key) {
-
-      }
-  }
-
   public function getDistCont()
   {
-    $query = $this->db->get("view_distribucion_contable");
+    $query = $this->db->get("distribucion_contable");
     if ($query->num_rows() > 0) {
       return $query->result_array();
     }

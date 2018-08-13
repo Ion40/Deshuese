@@ -86,12 +86,21 @@
 
          var input2 = "<input type='number' readonly class='aplicados' name='Aplicado' id='Aplicado"+valor+"'>";
 
-         table.row.add([
-             valor,
-             texto,
-             input,
-             input2
-         ]).draw(false);
+        if (valor != "") {
+          table.row.add([
+              valor,
+              texto,
+              input,
+              input2
+          ]).draw(false);
+        }else{
+          swal({
+            text: "Debe ingresar una búsqueda",
+            type: "error"
+          }).then(function(){
+             $("#square").focus();
+          });
+        }
      });
 
      $("#tblDistRecursos tbody").on("click","tr", function () {

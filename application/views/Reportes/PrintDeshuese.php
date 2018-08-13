@@ -355,7 +355,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
             </tbody>
             <tfoot>
             <?php
-            $kilos = 0; $valTotalc = 0; $valTotalp = 0; $AsigCost = 0; $rendiD = 0; $rendiB = 0;
+            $kilos = 0; $valTotalc = 0; $valTotalp = 0; $AsigCost = 0; $rendiD = 0; $rendiB = 0; $CPDH = 0;
             if(!$repor){}else{
                 foreach ($repor as $item) {
                     $kilos += $item["Kilos"];
@@ -363,6 +363,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                     $rendiD += $item["Rendimiento_D"];
                     $valTotalp += $item["Total_Actual"];
                     $rendiB += $item["Rendimiento_B"];
+                    $CPDH += $item["Costo_Product_DH"];
                 }
                 echo "
                     <tr>
@@ -371,6 +372,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                       <td style='text-align: center; font-weight: bold;'></td>
                       <td style='text-align: center; font-weight: bold;'>".number_format($valTotalc,3)."</td>
                       <td style='text-align: center; font-weight: bold;'>".number_format($rendiD,0)."</td>
+                      <td style='text-align: center; font-weight: bold;'>".number_format($CPDH,3)."</td>
                       <td style='text-align: center; font-weight: bold;'>".number_format($valTotalp,3)."</td>
                       <td style='text-align: center; font-weight: bold;'></td>
                       <td style='text-align: center; font-weight: bold;'>".$rendiB."</td>

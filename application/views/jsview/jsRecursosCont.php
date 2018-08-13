@@ -5,6 +5,21 @@ $(document).ready(function () {
     "paging": false,
     "ordering": false
   });
+
+var table = $("#tblDistRecursosCont").DataTable();
+  $("#tblDistRecursosCont tbody").on("click","tr", function () {
+      if ($(this).hasClass("selected"))
+      {
+          $(this).removeClass("selected");
+      }else{
+          table.$("tr.selected").removeClass("selected");
+          $(this).addClass("selected");
+      }
+  });
+
+  $("#btnDeleteRow").click(function () {
+      table.row(".selected").remove().draw(false);
+  });
 });
 $("#tblDistribucionesCont").DataTable({
       responsive: true,

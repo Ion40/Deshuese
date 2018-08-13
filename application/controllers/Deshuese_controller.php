@@ -36,13 +36,13 @@ class Deshuese_controller extends CI_Controller
         $GI = $this->input->get_post("GI");
         $ID = $this->input->get_post("ID");
         $CPDH = $this->input->get_post("CPDH");
-        //$this->Deshuese_model->saveEncabezado($Ndh,$FechaDH,$DescDH,$PB,$CT,$MOD,$GI,$ID,$CPDH);
+        $this->Deshuese_model->saveEncabezado($Ndh,$FechaDH,$DescDH,$PB,$CT,$MOD,$GI,$ID,$CPDH);
     }
 
     public function SaveDeshuese()
     {
         $deshuese = $this->input->get_post("deshuese");
-      // $this->Deshuese_model->saveDeshuese($deshuese);
+        $this->Deshuese_model->saveDeshuese($deshuese);
     }
 
     public function actualizarPrecioAnt($No_DH)
