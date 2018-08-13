@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col s3 m3 l2 left">
                 <input type="text" name="" value="" id="square">
-                <input type="hidden" name="" value="" id="result">
+                <input type="hidden" name="" value="" id="result"> 
             </div>
             <div class="col s2 m2 l2">
                 <button class="btn Btnadd" type="button" name="button" id="add">
