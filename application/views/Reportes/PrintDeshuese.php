@@ -126,7 +126,7 @@
 </style>
     <script>
         $(document).ready(function(){
-          window.print();
+          //window.print();
         });
     </script>
 </head>
@@ -214,6 +214,24 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
     <div class="contenedor-secundario">
         <table class="table-produccion">
             <thead>
+              <tr id="" class="encabezado" >
+                <?php
+                    for ($i=0; $i <= 4; $i++)
+                    {
+                      echo "<td></td>";
+                    }
+                ?>
+                <td colspan="3"  style="text-align:right;">Costo Producto DH:</td>
+                <td style="text-align:center;"><?php
+                    $CPDH;
+                    if(!$repor){}else{
+                        foreach ($repor as $item) {
+                            $CPDH = $item["Costo_Prod_DH"];
+                        }
+                        echo "<span>".number_format($CPDH,2)."</span>";
+                    }
+                    ?></td>
+              </tr>
               <tr id="idtr" class="encabezado" >
                 <?php
                     for ($i=0; $i <= 4; $i++)
@@ -300,6 +318,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                 <td  style='text-align: center;'>Calculo <br> Base</td>
                 <td  style='text-align: center;'>Valor Total <br> C$</td>
                 <td  style='text-align: center;'>Valor Total <br> %</td>
+                <td  style='text-align: center;'>Costo <br> Prod DH</td>
                 <td  style='text-align: center;'>Asig Costo <br> T</td>
                 <td  style='text-align: center;'>Costo Unit <br> kg</td>
                 <td  style='text-align: center; width:1%;'>Rendi</td>
@@ -322,6 +341,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                             <td style='text-align: center;'>".$item["Calculo_Base"]."</td>
                             <td style='text-align: center;'>".number_format($item["Valor_Total_Mercado"],3)."</td>
                             <td style='text-align: center;'>".$item["Rendimiento_D"]."</td>
+                            <td style='text-align: center;'>".number_format($item["Costo_Product_DH"],3)."</td>
                             <td style='text-align: center;'>".number_format($item["Total_Actual"],3)."</td>
                             <td style='text-align: center;'>".$item["Costo_Unitario"]."</td>
                             <td style='text-align: center;'>".$item["Rendimiento_B"]."</td>

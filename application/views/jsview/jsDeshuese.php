@@ -11,6 +11,7 @@
         $("#CT").numeric();
         $(".validar").numeric();
         $(".validar2").numeric();
+        $("#CPDH").numeric();
 
         var table = $("#tblMateriaPrima").DataTable({
             responsive: true,
@@ -152,12 +153,11 @@ function Calcular()
 }
 
 $("#btnSaveDeshuese").on("click", function () {
-    guardarEncabezado();
-    guardarInfoDes();
+        guardarEncabezado();
+        guardarInfoDes();
 });
 
 function guardarEncabezado() {
-    espere();
     var kilos = 0, gi = 0;
     $(".validar2").each(function(){
       kilos += Number($(this).val());
@@ -173,7 +173,8 @@ function guardarEncabezado() {
         CT: $("#CT").val(),
         MOD: $("#MOD").val(),
         GI: gi,
-        ID: $("#IdDisCont").val()
+        ID: $("#IdDisCont").val(),
+        CPDH: $("#CPDH").val()
     };
     $.ajax({
         url: "GuardarEncabezado",
@@ -192,7 +193,13 @@ function guardarEncabezado() {
             }
         },
         success: function (data) {
-            console.log("saved!");
+          swal({
+            text: "Deshuese Guardado con exito",
+            type: "success",
+            allowOutsideClick: false,
+          }).then( function () {
+             location.reload();
+          });
         },
         error: function () {
             console.log("error!");
@@ -217,6 +224,7 @@ function ActualizarPrecio()
 
 function guardarInfoDes()
 {
+  espere();
     var suma = 0;
     $(".VTMercado").each(function () {
         suma += Number($(this).val());

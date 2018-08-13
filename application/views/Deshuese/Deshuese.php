@@ -65,6 +65,9 @@
                     <div class="col s3 m3 l2 left">
                         <span class="left">No DH:</span><input type="text" id="Ndh">
                     </div>
+                    <div class="col s3 m3 l3">
+                        <span class="left">Costo Producto DH:</span><input type="text" id="CPDH">
+                    </div>
                     <div class="col s3 m3 l2 right">
                         <span class="left">Fecha:</span><input class="datepicker" type="text" id="FechaDH">
                     </div>

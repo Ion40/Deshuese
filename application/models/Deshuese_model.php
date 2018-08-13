@@ -23,7 +23,7 @@ class Deshuese_model extends CI_Model
         return 0;
     }
 
-    public function saveEncabezado($NDH,$fecha,$DescDH,$PB,$CT,$MOD,$GI,$ID)
+    public function saveEncabezado($NDH,$fecha,$DescDH,$PB,$CT,$MOD,$GI,$ID,$CPDH)
     {
         $data = array(
             "No_DH" => $NDH,
@@ -33,7 +33,8 @@ class Deshuese_model extends CI_Model
             "Costo_Total" => $CT,
             "Gasto_MOD" => $MOD,
             "GI" => $GI,
-            "Id_Dis_Cont" => $ID
+            "Id_Dis_Cont" => $ID,
+            "Costo_Prod_DH" => $CPDH
         );
         $this->db->insert("Encabezado_Deshuese",$data);
     }
