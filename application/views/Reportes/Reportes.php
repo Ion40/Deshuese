@@ -31,7 +31,7 @@
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="#" class="center">
+                            <a href="#" class="center" id="aMes">
                                 <i class="material-icons large">history</i>
                             </a>
                             <p class="center" style="font-family: robotoblack">Deshuese Mes Anterior</p>
@@ -65,7 +65,7 @@
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="javascript:void(0)" id="" class="center">
+                            <a href="javascript:void(0)" id="aSemana" class="center">
                                 <i class="material-icons large">history</i>
                             </a>
                             <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
@@ -330,6 +330,102 @@
                                  </tr>";
                                }
                              }
+                          ?>
+                      </tbody>
+                        <br><br>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <a href="javascript:void(0)" class="modal-close right"><i class="material-icons">close</i></a>
+        <h4 class="center TextColor" id="ReportPasado"></h4>
+        <div id="divMesAnterior" class="">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <table id="tblMesAnterior" class="table compact">
+                      <thead>
+                      <tr>
+                        <th>No_DH</th>
+                        <th>Fecha</th>
+                        <th>Descripcion</th>
+                        <th>Peso Bruto</th>
+                        <th>Costo Total</th>
+                        <th>Gastos MOD</th>
+                        <th>GI</th>
+                        <th>Imprimir</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                            if (!$Mes) {
+                            }else{
+                              foreach ($Mes as $key ) {
+                                echo "<tr>
+                                    <td>".$key["No_DH"]."</td>
+                                    <td>".$key["Fecha"]."</td>
+                                    <td>".$key["Descripcion_DH"]."</td>
+                                    <td>".$key["Precio_Bruto"]."</td>
+                                    <td>".number_format($key["Costo_Total"],2)."</td>
+                                    <td>".number_format($key["Gasto_MOD"],2)."</td>
+                                    <td>".number_format($key["GI"],2)."</td>
+                                    <td>
+                                    <a class='center' onclick='printDeshRango(".'"'.$key["No_DH"].'"'.")' href='javascript:void(0)' class='right' target='_blank'>
+                                        <i class='material-icons green-text'>print</i>
+                                    </a>
+                                    </td>
+                                 </tr>";
+                              }
+                            }
+                          ?>
+                      </tbody>
+                        <br><br>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="divSemanaAnterior" class="">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <table id="tblSemanaAnterior" class="table compact">
+                      <thead>
+                      <tr>
+                        <th>No_DH</th>
+                        <th>Fecha</th>
+                        <th>Descripcion</th>
+                        <th>Peso Bruto</th>
+                        <th>Costo Total</th>
+                        <th>Gastos MOD</th>
+                        <th>GI</th>
+                        <th>Imprimir</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                            if(!$Semana){
+                            }else{
+                              foreach ($Semana as $key ) {
+                                echo "<tr>
+                                    <td>".$key["No_DH"]."</td>
+                                    <td>".$key["Fecha"]."</td>
+                                    <td>".$key["Descripcion_DH"]."</td>
+                                    <td>".$key["Precio_Bruto"]."</td>
+                                    <td>".number_format($key["Costo_Total"],2)."</td>
+                                    <td>".number_format($key["Gasto_MOD"],2)."</td>
+                                    <td>".number_format($key["GI"],2)."</td>
+                                    <td>
+                                    <a class='center' onclick='printDeshRango(".'"'.$key["No_DH"].'"'.")' href='javascript:void(0)' class='right' target='_blank'>
+                                        <i class='material-icons green-text'>print</i>
+                                    </a>
+                                    </td>
+                                 </tr>";
+                              }
+                            }
                           ?>
                       </tbody>
                         <br><br>

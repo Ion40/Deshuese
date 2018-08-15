@@ -134,5 +134,23 @@ class Reportes_model extends CI_Model
       }
       return 0;
     }
+
+    public function PrintDesuheseMesAnt()
+    {
+      $query = $this->db->get("view_deshuese_MesAnterior");
+      if ($query->num_rows() > 0) {
+        return $query->result_array();
+      }
+      return 0;
+    }
+
+    public function PrintDesuheseSemanaAnt()
+    {
+      $query = $this->db->get("view_deshuese_SemanaAnterior");
+      if ($query->num_rows() > 0) {
+        return $query->result_array();
+      }
+      return 0;
+    }
 }
 ?>

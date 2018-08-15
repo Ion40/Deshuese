@@ -18,6 +18,8 @@ class Reportes_controller extends CI_Controller
     public function index()
     {
         $data["data"] = $this->DistribucionContable_model->getDistCont();
+        $data["Mes"] = $this->Reportes_model->PrintDesuheseMesAnt();
+        $data["Semana"] = $this->Reportes_model->PrintDesuheseSemanaAnt();
         $this->load->view("header/header");
         $this->load->view("pages/menu");
         $this->load->view("Reportes/Reportes",$data);

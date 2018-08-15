@@ -254,4 +254,32 @@ $("#DistCont").click(function () {
       "searching": false
   });
 });
+
+$("#aMes").click(function(){
+  $("#modal5").openModal();
+  $("#ReportPasado").html("Deshueses Mes Anterior");
+  $("#divMesAnterior").show();
+  $("#divSemanaAnterior").hide();
+  $("#tblMesAnterior").DataTable({
+      "destroy": true,
+      "ordering": false,
+      "paging": true,
+      "info":false,
+      "searching": false
+  });
+});
+
+$("#aSemana").click(function(){
+  $("#modal5").openModal();
+  $("#ReportPasado").html("Deshueses Semana Anterior");
+  $("#divMesAnterior").hide();
+  $("#divSemanaAnterior").show();
+  $("#tblSemanaAnterior").DataTable({
+      "destroy": true,
+      "ordering": false,
+      "paging": true,
+      "info":false,
+      "searching": false
+  });
+});
 </script>
