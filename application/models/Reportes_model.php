@@ -125,5 +125,14 @@ class Reportes_model extends CI_Model
         }
         return 0;
     }
+
+    public function PrintDistribucionCont($id)
+    {
+      $query = $this->db->get("view_distribucion_contable");
+      if ($query->num_rows() > 0) {
+        return $query->result_array();
+      }
+      return 0;
+    }
 }
 ?>

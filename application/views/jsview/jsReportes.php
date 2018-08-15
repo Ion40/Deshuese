@@ -243,5 +243,15 @@ function printDeshXFechas() {
     window.open("PrintDeshueseRango/" + fecha1 + "/" + fecha2, "_blank");
   }
 }
-
+/***********************************************************************************************/
+$("#DistCont").click(function () {
+  $("#modal4").openModal();
+  $("#tblInfoDistCont").DataTable({
+      "destroy": true,
+      "ordering": false,
+      "paging": true,
+      "info":false,
+      "searching": false
+  });
+});
 </script>

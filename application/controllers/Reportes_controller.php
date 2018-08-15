@@ -12,13 +12,15 @@ class Reportes_controller extends CI_Controller
         parent::__construct();
         $this->load->library("session");
         $this->load->model("Reportes_model");
+        $this->load->model("DistribucionContable_model");
     }
 
     public function index()
     {
+        $data["data"] = $this->DistribucionContable_model->getDistCont();
         $this->load->view("header/header");
         $this->load->view("pages/menu");
-        $this->load->view("Reportes/Reportes");
+        $this->load->view("Reportes/Reportes",$data);
         $this->load->view("footer/footer");
         $this->load->view("jsview/jsReportes");
     }
@@ -60,6 +62,12 @@ class Reportes_controller extends CI_Controller
     {
         $data["repo"] = $this->Reportes_model->printDesXFechas($fecha1,$fecha2);
         $this->load->view("Reportes/PrintDeshueseRango",$data);
+    }
+
+    public function PrintDistribucionCont($id)
+    {
+      $data["repo"] = $this->Reportes_model->PrintDistribucionCont($id);
+      $this->load->view("Reportes/PrintDistribucionContable",$data);
     }
 
 }

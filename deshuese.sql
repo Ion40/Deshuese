@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100131
 File Encoding         : 65001
 
-Date: 2018-08-13 10:18:14
+Date: 2018-08-15 10:00:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -453,11 +453,16 @@ CREATE TABLE `deshuese` (
   `Costo_Unitario` double DEFAULT NULL,
   `Total_Actual` double DEFAULT NULL,
   PRIMARY KEY (`IdDeshuese`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of deshuese
 -- ----------------------------
+INSERT INTO `deshuese` VALUES ('6', '8774', '86001', 'Grasa', '36.46', '36.45', '34', '12.08', '7', '344.132', '11700.488', '36.451', '12543.880866138301');
+INSERT INTO `deshuese` VALUES ('7', '8774', '86002', 'Cuero', '36.48', '36.47', '34', '8.81', '5.11', '251.062', '8536.108', '36.473', '9157.033032280959');
+INSERT INTO `deshuese` VALUES ('8', '8774', '86003', 'Posta de cerdo', '82.62', '82.6', '77', '39.03', '51.27', '1112.3', '85647.1', '82.599', '91874.96742955869');
+INSERT INTO `deshuese` VALUES ('9', '8774', '86011', 'Recorte', '59.22', '59.21', '55.5', '0.54', '0.51', '15.436', '856.698', '59.206', '913.911320247219');
+INSERT INTO `deshuese` VALUES ('10', '8774', '86013', 'Posta especial', '86.48', '86.46', '80.591', '26.25', '36.1', '748.192', '60297.541', '86.463', '64690.58560965608');
 
 -- ----------------------------
 -- Table structure for distribucionrecursos
@@ -494,11 +499,12 @@ CREATE TABLE `distribucion_contable` (
   `Gasto_Indirecto_Libra` double DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   PRIMARY KEY (`Id_Dis_Rec`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of distribucion_contable
 -- ----------------------------
+INSERT INTO `distribucion_contable` VALUES ('1', '3900', '97.5', '97.5', '78', '741', '4914', '0.387645', '2018-08-13');
 
 -- ----------------------------
 -- Table structure for encabezado_deshuese
@@ -516,11 +522,12 @@ CREATE TABLE `encabezado_deshuese` (
   `GI` double DEFAULT NULL,
   `Id_Dis_Cont` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of encabezado_deshuese
 -- ----------------------------
+INSERT INTO `encabezado_deshuese` VALUES ('2', '8774', '2018-08-13', 'pierna de cedo con hueso importada', '2849.97', '179198.29808769', '173326.38', '4914', '957.91808769', '1');
 
 -- ----------------------------
 -- Table structure for materiaprima
@@ -573,16 +580,47 @@ INSERT INTO `usuarios` VALUES ('1', 'sa', 'Administrador', 'abe6db4c9f5484fae8d7
 -- View structure for view_deshuese
 -- ----------------------------
 DROP VIEW IF EXISTS `view_deshuese`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_deshuese` AS SELECT
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `view_deshuese` AS SELECT
 	ed.No_DH,
 	ed.Fecha,
 	ed.Descripcion_DH,
 	ed.Precio_Bruto as Masa_Deshuesada,
-	ed.Costo_Total
+	ed.Costo_Total,
+  ed.Costo_Prod_DH
 FROM
 	encabezado_deshuese ed
 GROUP BY ed.No_DH
 ORDER BY Fecha desc ;
+
+-- ----------------------------
+-- View structure for view_deshuese_mesanterior
+-- ----------------------------
+DROP VIEW IF EXISTS `view_deshuese_mesanterior`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_deshuese_mesanterior` AS SELECT
+	*
+FROM
+	encabezado_deshuese
+WHERE
+	MONTH (Fecha) = MONTH (
+		DATE_ADD(CURDATE(), INTERVAL - 1 MONTH)
+	)
+GROUP BY
+	No_DH ;
+
+-- ----------------------------
+-- View structure for view_deshuese_semanaanterior
+-- ----------------------------
+DROP VIEW IF EXISTS `view_deshuese_semanaanterior`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_deshuese_semanaanterior` AS SELECT
+	*
+FROM
+	encabezado_deshuese
+WHERE
+	WEEK (Fecha) = WEEK (
+		DATE_ADD(CURDATE(), INTERVAL - 1 WEEK)
+	)
+GROUP BY
+	No_DH ;
 
 -- ----------------------------
 -- View structure for view_distribucion
@@ -604,7 +642,7 @@ ORDER BY
 -- View structure for view_distribucion_contable
 -- ----------------------------
 DROP VIEW IF EXISTS `view_distribucion_contable`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_distribucion_contable` AS SELECT
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `view_distribucion_contable` AS SELECT
   ed.No_DH,
 	dc.Id_Dis_Rec,
 	dc.Salario,
@@ -619,7 +657,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `view_distribucion_c
 FROM
 	encabezado_deshuese ed
 INNER JOIN distribucion_contable dc ON ed.Id_Dis_Cont = dc.Id_Dis_Rec
-GROUP BY ed.No_DH ;
+GROUP BY dc.Id_Dis_Rec ;
 
 -- ----------------------------
 -- View structure for view_ultimodeshuese

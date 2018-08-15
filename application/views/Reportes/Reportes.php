@@ -44,20 +44,31 @@
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="javascript:void(0)" id="" class="center">
-                                <i class="material-icons large">history</i>
+                            <a href="#" class="center" id="Rangos">
+                                <i class="material-icons large">date_range</i>
                             </a>
-                            <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
+                            <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
                         </div>
                     </div>
                 </div>
                 <div class="col s4 m4 l4">
                     <div class="card  blue-grey lighten-5 hoverable">
                         <div class="card-content">
-                            <a href="#" class="center" id="Rangos">
-                                <i class="material-icons large">date_range</i>
+                            <a href="javascript:void(0)" id="DistCont" class="center">
+                                <i class="material-icons large">monetization_on
+</i>
                             </a>
-                            <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
+                            <p class="center" style="font-family: robotoblack">Distribución de Recursos Contables</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s4 m4 l4">
+                    <div class="card  blue-grey lighten-5 hoverable">
+                        <div class="card-content">
+                            <a href="javascript:void(0)" id="" class="center">
+                                <i class="material-icons large">history</i>
+                            </a>
+                            <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
                         </div>
                     </div>
                 </div>
@@ -276,4 +287,56 @@
     </div>
 </div>
 
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <a href="javascript:void(0)" class="modal-close right"><i class="material-icons">close</i></a>
+        <h4 class="center TextColor" id="">Reporte Distribución de Recursos Contables</h4>
+        <div id="" class="">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <table id="tblInfoDistCont" class="table compact">
+                      <thead>
+                      <tr>
+                          <th>Fecha</th>
+                          <th>Salario</th>
+                          <th>Vacaciones</th>
+                          <th>TreceavoMes</th>
+                          <th>Inatec</th>
+                          <th>Inss</th>
+                          <th>MOD</th>
+                          <th>GI por libra</th>
+                          <th>Print</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                             if(!$data)
+                             {}else{
+                               foreach ($data as $key) {
+                                 echo "<tr>
+                                    <td>".$key["Fecha"]."</td>
+                                    <td>".$key["Salario"]."</td>
+                                    <td>".$key["Vacaciones"]."</td>
+                                    <td>".$key["TreceavoMes"]."</td>
+                                    <td>".$key["Inatec"]."</td>
+                                    <td>".$key["Inss"]."</td>
+                                    <td>".number_format($key["Costo_MOD"],2)."</td>
+                                    <td>".$key["Gasto_Indirecto_Libra"]."</td>
+                                    <td>
+                                    <a onclick='' href='printDistribucionCont/".$key["Id_Dis_Rec"]."' target='_blank'>
+                                        <i class='material-icons green-text'>print</i>
+                                    </a>
+                                    </td>
+                                 </tr>";
+                               }
+                             }
+                          ?>
+                      </tbody>
+                        <br><br>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
