@@ -55,3 +55,8 @@ $route["GuardarMteriaPrima"] = "MateriaPrima_controller/SaveMatPrim";
 $route["ActualizarMteriaPrima/(:any)"] = "MateriaPrima_controller/UpdateMatPrim/$1";
 $route["ActualizarEstMteriaPrima/(:any)/(:any)"] = "MateriaPrima_controller/UpdateEstado/$1/$2";
 //Fin Materia Prima
+
+//Productos
+$route["Productos"] = "ProductosDH_controller";
+$route["MatPrima"] = "ProductosDH_controller/getMatPrim";
+//Fin Productos
