@@ -1,4 +1,17 @@
 <script type="text/javascript">
+$(document).ready(function () {
+  $("#t1").DataTable({
+    "ajax": "MatPrima",
+    "paging": false,
+    "destroy":true,
+    "columns":[
+      {"data": "Materia_prima"},
+      {"data": "Descripcion"},
+      {"data": "Campo"}
+    ]
+  });
+});
+
 $('#t1 tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('selected1');
     });
@@ -37,16 +50,6 @@ $('#t1 tbody').on( 'click', 'tr', function () {
 
   $("#newProd").on("click", function () {
     $("#mProducto").openModal();
-    $("#t1").DataTable({
-      "ajax": "MatPrima",
-      "paging": false,
-      "destroy":true,
-      "columns":[
-        {"data": "Materia_prima"},
-        {"data": "Descripcion"},
-        {"data": "Campo"}
-      ]
-    });
     $("#t2").DataTable({
       "paging": false,
       "destroy":true
@@ -66,7 +69,7 @@ $('#t1 tbody').on( 'click', 'tr', function () {
     tabla.rows().eq(0).each(function(index){
         var row = tabla.row(index);
         var data = row.data();
-        datos[posi] = data.data[0];
+        datos[posi] = data.data[0].Materia_prima;
         posi++;
     });
 
