@@ -78,7 +78,7 @@
                     <div class="col s5 m5 l5">
                         <label class="left" for="DescDH"></label>
                         <select class="browser-default chosen-select" name="" id="DescDH">
-                          <option disabled selected>Descripcion Deshuese:</option>
+                          <option disabled selected id="fop">Descripcion Deshuese:</option>
                           <?php
                              if(!$prod){
                              }else{
@@ -90,6 +90,8 @@
                              }
                           ?>
                         </select>
+                    </div>
+                    <div id="input">
                     </div>
                     <div class="col s3 m3 l3">
                         <span class="left">Masa Deshuesada (kg):</span><input type="text" id="PB">

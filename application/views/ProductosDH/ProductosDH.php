@@ -38,6 +38,9 @@
                                 <tr>
                                     <td>".$key["Codigo"]."</td>
                                     <td>".$key["Producto"]."</td>
+                                    <td>
+                                      <a href='#'><i class='material-icons'>edit</i></a>
+                                    </td>  
                                 </tr>
                               ";
                             }
