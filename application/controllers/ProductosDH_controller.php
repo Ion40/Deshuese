@@ -10,9 +10,10 @@ class ProductosDH_controller extends CI_Controller
 
   public function index()
   {
+    $data["prod"] = $this->ProductosDH_model->getProductos();
     $this->load->view("header/header");
     $this->load->view("pages/menu");
-    $this->load->view("ProductosDH/ProductosDH");
+    $this->load->view("ProductosDH/ProductosDH",$data);
     $this->load->view("footer/footer");
     $this->load->view("jsview/jsProductos");
   }
@@ -22,5 +23,10 @@ class ProductosDH_controller extends CI_Controller
     $this->ProductosDH_model->getMatPrim();
   }
 
+  public function GuardarPdh()
+  {
+    $array = $this->input->get_post("Array");
+    $this->ProductosDH_model->Guardar($array);
+  }
 }
 ?>

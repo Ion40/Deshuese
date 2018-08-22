@@ -24,16 +24,25 @@
                 <table class="table striped RobotoR" id="">
                     <thead>
                     <tr>
-                        <th>No Deshuese</th>
-                        <th>Fecha</th>
-                        <th>Descripcion</th>
-                        <th>Masa Deshuesada</th>
-                        <th>Costo Total</th>
-                        <th>Costo Producto DH</th>
+                        <th>Codigo</th>
+                        <th>Producto</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-
+                        <?php
+                          if (!$prod) {
+                          }else{
+                            foreach ($prod as $key) {
+                              echo "
+                                <tr>
+                                    <td>".$key["Codigo"]."</td>
+                                    <td>".$key["Producto"]."</td>
+                                </tr>
+                              ";
+                            }
+                          }
+                        ?>
                     </tbody>
                 </table>
             </div>

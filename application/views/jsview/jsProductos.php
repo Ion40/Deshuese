@@ -96,4 +96,66 @@ $('#t1 tbody').on( 'click', 'tr', function () {
     var rows = tabla.row( '.teal-text' ).remove().draw();
 }
 
+$("#btnSave").click( function () {
+  var i = 0;
+  var array = new Array();
+  var table = $("#t2").DataTable();
+  table.rows().eq(0).each(function (index) {
+    var row = table.row(index);
+    var data = row.data();
+    array[i] = $("#Codigo").val()+","+$("#Producto").val()+","+data[0]+","+data[1]+","+$("#base"+data[0]).val();
+    i++;
+  });
+
+  var formdata = {
+    Array : array
+  };
+
+  $.ajax({
+    url: "GuardarProdh",
+    type: "POST",
+    data: formdata,
+    beforeSend: function ()
+    {
+      if (table.rows().count() == 0) {
+        swal({
+          text: "La tabla no contiene datos",
+          type: "warning"
+        });
+        if ($("#Codigo").val() == "" || ("#Producto").val() == "") {
+          swal({
+            text: "Campo codigo o Producto esta vacío",
+            type: "warning"
+          });
+        }
+        if ($(".base").val() == 0) {
+           swal({
+            text: "el valor del calculo base debe ser mayor a 0",
+            type: "warning"
+          }); 
+        }
+        $.ajax.abort();
+      }
+    },
+    success: function (data)
+    {
+      swal({
+            text: "Datos almacenados con éxito",
+            type: "success"
+        }).then(function () {
+          location.reload();
+        });
+    },
+    error: function()
+    {
+      swal({
+            text: "Error al guardar los datos",
+            type: "error"
+       });
+      console.log(data);
+    }
+  });
+
+});
+
 </script>
