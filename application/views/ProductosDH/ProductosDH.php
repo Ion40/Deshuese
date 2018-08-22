@@ -21,12 +21,12 @@
                 </button>
             </div>
             <div class="row center">
-                <table class="table striped RobotoR" id="">
+                <table class="table striped RobotoR" id="tblProductosdh">
                     <thead>
                     <tr>
                         <th>Codigo</th>
                         <th>Producto</th>
-                        <th>Acciones</th>
+                        <th>Detalles</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,8 +38,22 @@
                                 <tr>
                                     <td>".$key["Codigo"]."</td>
                                     <td>".$key["Producto"]."</td>
-                                    <td>
-                                      <a href='#'><i class='material-icons'>edit</i></a>
+                                    <td class='center detalles'>
+                                      <i id='more".$key["Codigo"]."' class='material-icons'>arrow_drop_down</i>
+                                      <i id='less".$key["Codigo"]."' style='display:none;' class='material-icons'>arrow_drop_up</i>
+                                        <div id='loader".$key['Codigo']."' style='display:none;' class='preloader-wrapper small active'>
+                                            <div class='spinner-layer spinner-blue-only'>
+                                                <div style='overflow: visible!important;' class='circle-clipper left'>
+                                                    <div class='circle'></div>
+                                                </div>
+                                                <div class='gap-patch'>
+                                                    <div class='circle'></div>
+                                                </div>
+                                                <div style='overflow: visible!important;' class='circle-clipper right'>
+                                                    <div class='circle'></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>  
                                 </tr>
                               ";

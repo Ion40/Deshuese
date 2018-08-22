@@ -1,5 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
+    $("#tblProductosdh").DataTable();
+    
   $("#t1").DataTable({
     "ajax": "MatPrima",
     "paging": false,
@@ -80,7 +82,7 @@ $('#t1 tbody').on( 'click', 'tr', function () {
         posi1++;
     });
 
-    alert(datos+","+datos1);
+    //alert(datos+","+datos1);
 
      for(x=0;x<datos.length;x++)
      {
@@ -103,8 +105,13 @@ $("#btnSave").click( function () {
   table.rows().eq(0).each(function (index) {
     var row = table.row(index);
     var data = row.data();
-    array[i] = $("#Codigo").val()+","+$("#Producto").val()+","+data[0]+","+data[1]+","+$("#base"+data[0]).val();
-    i++;
+   if($("#base"+data[0]).val() != 0)
+      {
+         array[i] = $("#Codigo").val()+","+$("#Producto").val()+","+data[0]+","+data[1]+","+$("#base"+data[0]).val();
+         i++;
+      }else{
+          console.log("uno o mas datos de calculo base estan en 0");
+      }             
   });
 
   var formdata = {
@@ -158,4 +165,25 @@ $("#btnSave").click( function () {
 
 });
 
+    $("#tblProductosdh").on("click","tbody .detalles", function () {
+        var table = $("#tblProductosdh").DataTable();
+        var tr = $(this).closest("tr");
+        $(this).addClass("detalleNumOrdOrange");
+        var row = table.row(tr);
+        var data = table.row($(this).parents("tr")).data();
+        
+        if(row.child.isShown())
+           {
+              row.child.hide();
+               tr.removeClass("shown");
+               $("#more"+data[0]).hide();
+               $("#less"+data[0]).show();
+           }else{
+               $("#loader"+data[0]).show();
+               $("#more"+data[0]).show();
+               $("#less"+data[0]).hide();
+               detalle(row.child,data[0],data[0]);
+               tr.addClass("shown");
+           }
+    });
 </script>

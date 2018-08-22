@@ -1645,3 +1645,7 @@ select.swal2-select {
   padding: 5px !important;
   font-size: small;
 }
+
+.detalleNumOrdOrange{
+  color: #800080!important;
+}
