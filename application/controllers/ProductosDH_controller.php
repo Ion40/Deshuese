@@ -28,5 +28,10 @@ class ProductosDH_controller extends CI_Controller
     $array = $this->input->get_post("Array");
     $this->ProductosDH_model->Guardar($array);
   }
+
+  public function getProductosAjax($cod)
+  {
+    $this->ProductosDH_model->getProductosAjax($cod);
+  }
 }
 ?>

@@ -180,7 +180,7 @@ function guardarEncabezado() {
     var form_data = {
         Ndh: $("#Ndh").val(),
         FechaDH: $("#FechaDH").val(),
-        DescDH: $("#DescDH").val(),
+        DescDH: $("#DescDH option:selected").text(),
         PB: $("#PB").val(),
         CT: $("#CT").val(),
         MOD: $("#MOD").val(),
@@ -363,4 +363,20 @@ function guardarInfoDes()
             }
         });
     }
+
+    $("#DescDH").on('change', function(event) {
+    var descdh = $('#DescDH option:selected').val();
+    $.ajax({
+        url: "GetProductosAjax/" + descdh,
+        type: "POST",
+        async: true,
+        success: function(data) {
+            $('#dropMP').empty();
+            $.each(JSON.parse(data), function(i, item) {
+                $("#dropMP").append('<option value="' + item['Materia_prima'] + '">' + item['Descripcion'] + '</option>');
+            });
+            $('#dropMP').trigger("chosen:updated");
+        }
+    });
+});
 </script>

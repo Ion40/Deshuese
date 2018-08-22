@@ -23,7 +23,7 @@ class ProductosDH_model extends CI_Model
 
   public function Guardar($array)
   {
-    for ($i=0; $i < count($array); $i++) { 
+    for ($i=0; $i < count($array); $i++) {
       $Arraydata = explode(",", $array[$i]);
       $data = array(
         "Codigo" => $Arraydata[0],
@@ -44,6 +44,23 @@ class ProductosDH_model extends CI_Model
       return $query->result_array();
     }
     return 0;
+  }
+
+  public function getProductosAjax($cod)
+  {
+    $json = array();
+    $i = 0;
+    $this->db->where("Codigo",$cod);
+    $query = $this->db->get("productosdh");
+    foreach ($query->result_array() as $key) {
+       $json[$i]["Codigo"] = $key["Codigo"];
+       $json[$i]["Producto"] = $key["Producto"];
+       $json[$i]["Materia_prima"] = $key["Materia_prima"];
+       $json[$i]["Descripcion"] = $key["Descripcion"];
+       $json[$i]["Calculo_base"] = $key["Calculo_base"];
+       $i++;
+    }
+    echo json_encode($json);
   }
 
 }

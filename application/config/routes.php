@@ -60,4 +60,5 @@ $route["ActualizarEstMteriaPrima/(:any)/(:any)"] = "MateriaPrima_controller/Upda
 $route["Productos"] = "ProductosDH_controller";
 $route["MatPrima"] = "ProductosDH_controller/getMatPrim";
 $route["GuardarProdh"] = "ProductosDH_controller/GuardarPdh";
+$route["GetProductosAjax/(:any)"] = "ProductosDH_controller/getProductosAjax/$1";
 //Fin Productos

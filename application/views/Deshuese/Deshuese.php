@@ -76,7 +76,20 @@
                 </div>
                 <div class="row">
                     <div class="col s5 m5 l5">
-                        <span class="left">Descripcion Deshuese:</span><input type="text" id="DescDH">
+                        <label class="left" for="DescDH"></label>
+                        <select class="browser-default chosen-select" name="" id="DescDH">
+                          <option disabled selected>Descripcion Deshuese:</option>
+                          <?php
+                             if(!$prod){
+                             }else{
+                               foreach ($prod as $key) {
+                                 echo "
+                                    <option value='".$key["Codigo"]."'>".$key["Producto"]."</option>
+                                 ";
+                               }
+                             }
+                          ?>
+                        </select>
                     </div>
                     <div class="col s3 m3 l3">
                         <span class="left">Masa Deshuesada (kg):</span><input type="text" id="PB">
@@ -98,15 +111,6 @@
             <div class="col s6 m6 l6 left">
                 <select name="dropMP" id="dropMP" class="browser-default chosen-select">
                     <option value="" disabled selected>Materia Prima</option>
-                    <?php
-                        if (!$mp)
-                        {}
-                        else{
-                            foreach ($mp as $item) {
-                                echo "<option value='".$item["Materia_prima"]."'>".$item["Descripcion"]."</option>";
-                            }
-                        }
-                    ?>
                 </select>
             </div>
             <div class="col s4 m4 l4 right">

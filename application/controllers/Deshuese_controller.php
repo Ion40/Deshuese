@@ -12,12 +12,14 @@ class Deshuese_controller extends CI_Controller
         parent::__construct();
         $this->load->library("session");
         $this->load->model("Deshuese_model");
+        $this->load->model("ProductosDH_model");
     }
 
     public function index()
     {
         $data["mp"] = $this->Deshuese_model->getmateriaPrima();
         $data["ds"] = $this->Deshuese_model->getInfoDeshuese();
+        $data["prod"] = $this->ProductosDH_model->getProductos();
         $this->load->view("header/header");
         $this->load->view("pages/menu");
         $this->load->view("Deshuese/Deshuese",$data);
