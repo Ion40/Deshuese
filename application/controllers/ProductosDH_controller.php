@@ -33,5 +33,10 @@ class ProductosDH_controller extends CI_Controller
   {
     $this->ProductosDH_model->getProductosAjax($cod);
   }
+    
+    public function Eliminar($codigo)
+    {
+        $this->ProductosDH_model->Eliminar($codigo);
+    }
 }
 ?>

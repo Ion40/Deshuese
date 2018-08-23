@@ -165,7 +165,52 @@ $("#btnSave").click( function () {
 
 });
 
-    $("#tblProductosdh").on("click","tbody .detalles", function () {
+       
+    function detalle(callback,id,div){
+	$.ajax({
+		url: "GetProductosAjax/"+id,
+		async: true,
+		success:function(response){
+			var thead = '',
+				tbody= '';
+			var cont = 0;
+			if (response != "false") {
+				var obj = $.parseJSON(response);
+				var temp = obj.length; var cantRows = 0;
+				thead += "<tr class='tblcabecera1'><th class='center'>MateriaPrima</th>";
+				thead += "<th class='center'>Descripcion</th>";
+				thead += "<th class='center'>Calculo Base</th></tr>";
+
+				$.each(JSON.parse(response), function(i, item){
+					tbody += "<tr>"+
+						"<td>"+item["Materia_prima"]+"</td>"+
+						"<td>"+item["Descripcion"]+"</td>"+
+						"<td>"+item["Calculo_base"]+"</td>";
+				});
+				callback($("<table id='detOrdenS' class='table striped'>"+ thead + tbody + "</table>")).show();
+				$('#loader' + div).hide();
+                $('#more' + div).hide();
+				$('#less' + div).show();
+			} else {
+				thead += "<tr class='tblcabecera1'><th class='center'>MateriaPrima</th>";
+				thead += "<th class='center'>Fecha Descripcion</th>";
+				thead += "<th class='center'>Calculo Base</th></tr>";
+				tbody += '<tr >' +
+					'<td></td>' +
+					'<td>No hay datos disponibles</td>' +
+					'<td></td>' +
+					'</tr>';
+				callback($('<table id="detProd" class="table striped">' + thead + tbody + '</table>')).show();
+				$('#loader' + div).hide();
+				$('#more' + div).show();
+                $('#less' + div).hide();
+			}
+		}
+	});
+
+}
+    
+     $("#tblProductosdh").on("click","tbody .detalles", function () {
         var table = $("#tblProductosdh").DataTable();
         var tr = $(this).closest("tr");
         $(this).addClass("detalleNumOrdOrange");
@@ -176,8 +221,8 @@ $("#btnSave").click( function () {
            {
               row.child.hide();
                tr.removeClass("shown");
-               $("#more"+data[0]).hide();
-               $("#less"+data[0]).show();
+               $("#more"+data[0]).show();
+               $("#less"+data[0]).hide();
            }else{
                $("#loader"+data[0]).show();
                $("#more"+data[0]).show();
@@ -186,4 +231,41 @@ $("#btnSave").click( function () {
                tr.addClass("shown");
            }
     });
+    
+    function Eliminar(codigo)
+    {
+        swal({
+              title: '¿Estas seguro que deseas eliminar este producto?',
+              text: "Esta operacion no se podra revertir!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Borrar!',
+              cancelButtonText: 'Cancelar'
+            }).then( function (){
+                $.ajax({
+                    url: "EliminarProd/"+codigo,
+                    type: "POST",
+                    success: function ()
+                    {
+                        swal({
+                            title: 'Eliminado',
+                            text: "Producto eliminado con exito",
+                            type: "success"
+                        }).then(function () {
+                            location.reload();
+                        });
+                    },
+                    error: function ()
+                    {
+                        swal({
+                            title: 'Error',
+                            text: "Se produjo un error al tratar de eliminar el producto, contactece con el administrador",
+                            type: "error"
+                        });
+                    }
+                }); 
+        });
+    }
 </script>

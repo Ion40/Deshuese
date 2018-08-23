@@ -63,5 +63,10 @@ class ProductosDH_model extends CI_Model
     echo json_encode($json);
   }
 
+    public function Eliminar($codigo)
+    {
+        $this->db->where("Codigo",$codigo);
+        $this->db->delete("productosdh");
+    }
 }
 ?>

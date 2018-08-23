@@ -27,6 +27,7 @@
                         <th>Codigo</th>
                         <th>Producto</th>
                         <th>Detalles</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,6 +55,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </td>  
+                                    <td>
+                                      <a onclick='Eliminar(".'"'.$key["Codigo"].'"'.")' href='javascript:void(0)'><i class='material-icons'>delete</i></a>
                                     </td>  
                                 </tr>
                               ";
