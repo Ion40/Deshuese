@@ -184,7 +184,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                 </td>
             </tr>
             <tr>
-                <td colspan="" style="width: 300px" class="negrita">
+                <td colspan="" style="width: 200px" class="negrita">
                     Producto Deshuesado:
                 </td>
                 <td style="">
@@ -194,7 +194,7 @@ setlocale(LC_ALL,'Spanish_Nicaragua');
                     $Desc;
                     if(!$repor){}else{
                         foreach ($repor as $item) {
-                            $Desc = $item["Descripcion_DH"];
+                            $Desc = $item["Cod_Prod_Dh"]." ".$item["Descripcion_DH"];
                         }
                         echo "<span>".$Desc."</span>";
                     }

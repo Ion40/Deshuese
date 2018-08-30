@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100131
 File Encoding         : 65001
 
-Date: 2018-08-22 17:04:49
+Date: 2018-08-30 10:44:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -574,21 +574,21 @@ CREATE TABLE `productosdh` (
   `Descripcion` varchar(255) DEFAULT NULL,
   `Calculo_base` double(255,3) DEFAULT NULL,
   PRIMARY KEY (`IdProductodh`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of productosdh
 -- ----------------------------
-INSERT INTO `productosdh` VALUES ('1', '86019', 'Liq. pierna de cerdo con hueso importado', '86001', 'Grasa', '34.000');
-INSERT INTO `productosdh` VALUES ('2', '86019', 'Liq. pierna de cerdo con hueso importado', '86002', 'Cuero', '34.000');
-INSERT INTO `productosdh` VALUES ('3', '86019', 'Liq. pierna de cerdo con hueso importado', '86003', 'Posta de cerdo', '77.000');
-INSERT INTO `productosdh` VALUES ('4', '86019', 'Liq. pierna de cerdo con hueso importado', '86004', 'Posta p/bacon', '77.000');
-INSERT INTO `productosdh` VALUES ('5', '86019', 'Liq. pierna de cerdo con hueso importado', '86011', 'Recorte', '55.500');
-INSERT INTO `productosdh` VALUES ('6', '86019', 'Liq. pierna de cerdo con hueso importado', '86013', 'Posta especial', '80.591');
-INSERT INTO `productosdh` VALUES ('7', '86019', 'Liq. pierna de cerdo con hueso importado', '86015', 'Pierna fresca(c/h y s/cuero)', '0.000');
-INSERT INTO `productosdh` VALUES ('8', '86019', 'Liq. pierna de cerdo con hueso importado', '86055', 'Pierna fresca(s/h)p/ahumar', '0.000');
-INSERT INTO `productosdh` VALUES ('9', '86019', 'Liq. pierna de cerdo con hueso importado', '86056', 'Pierna fresca(s/h)p/ahumar', '0.000');
-INSERT INTO `productosdh` VALUES ('10', '86019', 'Liq. pierna de cerdo con hueso importado', '86108', 'Posta de paleta y pierna cerdo nacional/expo.', '70.486');
+INSERT INTO `productosdh` VALUES ('11', '86019', 'Liq. pierna de cerdo con hueso importado', '86001', 'Grasa', '34.000');
+INSERT INTO `productosdh` VALUES ('12', '86019', 'Liq. pierna de cerdo con hueso importado', '86002', 'Cuero', '34.000');
+INSERT INTO `productosdh` VALUES ('13', '86019', 'Liq. pierna de cerdo con hueso importado', '86003', 'Posta de cerdo', '77.000');
+INSERT INTO `productosdh` VALUES ('14', '86019', 'Liq. pierna de cerdo con hueso importado', '86004', 'Posta p/bacon', '77.000');
+INSERT INTO `productosdh` VALUES ('15', '86019', 'Liq. pierna de cerdo con hueso importado', '86011', 'Recorte', '55.500');
+INSERT INTO `productosdh` VALUES ('16', '86019', 'Liq. pierna de cerdo con hueso importado', '86013', 'Posta especial', '80.591');
+INSERT INTO `productosdh` VALUES ('17', '86019', 'Liq. pierna de cerdo con hueso importado', '86015', 'Pierna fresca(c/h y s/cuero)', '0.000');
+INSERT INTO `productosdh` VALUES ('18', '86019', 'Liq. pierna de cerdo con hueso importado', '86055', 'Pierna fresca(s/h)p/ahumar', '0.000');
+INSERT INTO `productosdh` VALUES ('19', '86019', 'Liq. pierna de cerdo con hueso importado', '86056', 'Pierna fresca(s/h)p/ahumar', '0.000');
+INSERT INTO `productosdh` VALUES ('20', '86019', 'Liq. pierna de cerdo con hueso importado', '86108', 'Posta de paleta y pierna cerdo nacional/expo.', '70.486');
 
 -- ----------------------------
 -- Table structure for usuarios
@@ -772,6 +772,7 @@ BEGIN
 SELECT
 	ed.No_DH,
 ed.Fecha,
+(select Codigo from productosdh p where ed.Descripcion_DH = p.Producto limit 1) as Cod_Prod_Dh,
 ed.Descripcion_DH,
 ed.Precio_Bruto,
 ed.Costo_Total,
