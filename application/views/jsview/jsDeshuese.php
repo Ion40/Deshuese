@@ -255,7 +255,7 @@
                 var ta = totalActual($("#CT").val(), rd, $("#Kilos" + data[0]).val());
                 ta.toFixed(2);
                 array[i] =
-                    $("#Ndh").val() + "," + data[0] + "," + data[1] + "," + cu + "," + $("#calculobase" + data[0]).val() + "," + rb + "," + rd + "," +
+                    $("#Ndh").val() + "," + data[0] + "," + data[1] + "," + cu + "," +  data[2] + "," + rb + "," + rd + "," +
                     $("#Kilos" + data[0]).val() + "," + $("#VTMercado" + data[0]).val() + "," + cu + "," + ta;
                 i++;
             }
