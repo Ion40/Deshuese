@@ -66,6 +66,19 @@
                              <li href="salir"><i class="material-icons">power_settings_new</i>Salir</li>
                            </a>';
                            break;
+
+                  case 3:
+                  $menu = '
+                              <a href="Distribucion_Contable">
+                                <li href="Distribucion_Contable"><i class="material-icons">attach_money</i> Distribucion Contable</li>
+                              </a>
+                           <a href="Reportes">
+                             <li href="Reportes"><i class="material-icons">assignment</i> Reportes</li>
+                           </a><br><br>
+                            <a href="salir">
+                             <li href="salir"><i class="material-icons">power_settings_new</i>Salir</li>
+                           </a>';
+                           break;
               }
               echo $menu;
             ?>

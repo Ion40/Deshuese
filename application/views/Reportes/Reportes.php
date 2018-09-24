@@ -7,73 +7,93 @@
         <div class="row TextColor center">Elige un Reporte</div>
         <div class="row" style="width:100%">
 
-        <div class="row center">
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="javascript:void(0)" id="NumDes" class="center">
-                                <i class="material-icons large">print</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Número Deshuese</p>
+                <?php
+                    if ($this->session->userdata("RolUser") == 3) {
+                       echo '
+                        <div class="row center">
+                            <div class="col s4 m4 l4">
+                                <div class="card  blue-grey lighten-5 hoverable">
+                                    <div class="card-content">
+                                        <a href="javascript:void(0)" id="DistCont" class="center">
+                                            <i class="material-icons large">monetization_on</i>
+                                        </a>
+                                        <p class="center" style="font-family: robotoblack">Distribución de Recursos Contables</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="#" class="center" id="disRecursos">
-                                <i class="material-icons large">assessment</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Distribución de Recursos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="#" class="center" id="aMes">
-                                <i class="material-icons large">history</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Deshuese Mes Anterior</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                       ';
+                    } else {
+                        echo '
+                            <div class="row center">
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="javascript:void(0)" id="NumDes" class="center">
+                                                <i class="material-icons large">print</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Número Deshuese</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="#" class="center" id="disRecursos">
+                                                <i class="material-icons large">assessment</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Distribución de Recursos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="#" class="center" id="aMes">
+                                                <i class="material-icons large">history</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Deshuese Mes Anterior</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="row center">
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="#" class="center" id="Rangos">
-                                <i class="material-icons large">date_range</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="javascript:void(0)" id="DistCont" class="center">
-                                <i class="material-icons large">monetization_on
-</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Distribución de Recursos Contables</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s4 m4 l4">
-                    <div class="card  blue-grey lighten-5 hoverable">
-                        <div class="card-content">
-                            <a href="javascript:void(0)" id="aSemana" class="center">
-                                <i class="material-icons large">history</i>
-                            </a>
-                            <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
+                            <div class="row center">
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="#" class="center" id="Rangos">
+                                                <i class="material-icons large">date_range</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Deshuese por Rango de Fechas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="javascript:void(0)" id="DistCont" class="center">
+                                                <i class="material-icons large">monetization_on</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Distribución de Recursos Contables</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s4 m4 l4">
+                                    <div class="card  blue-grey lighten-5 hoverable">
+                                        <div class="card-content">
+                                            <a href="javascript:void(0)" id="aSemana" class="center">
+                                                <i class="material-icons large">history</i>
+                                            </a>
+                                            <p class="center" style="font-family: robotoblack">Deshuese Semana Anterior</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        ';
+                    }
+                ?>
 </main>
 <!-- Modal Structure -->
 <div id="modal1" class="modal">

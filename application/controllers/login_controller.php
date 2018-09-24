@@ -36,14 +36,22 @@ class Login_controller extends CI_Controller
                 $sessiondata = array(
                     'id' => $data['user'][0]['IdUsuario'],
                     'UserN' => $data['user'][0]['Usuario'],
-                    'RolUser' => $data['user'][0]['Cargo'],
+                    'RolUser' => $data['user'][0]['Permiso'],
                     'Ruta' => $data["user"][0]["Ruta"],
                     'logged' => 1
                 );
                 $this->session->set_userdata($sessiondata);
 
                 if ($this->session->userdata) {
-                    redirect('Materia_Prima');
+                    switch ($this->session->userdata("RolUser")) {
+                        case 0:
+                              redirect('Materia_Prima');
+                            break;
+                        
+                        case 3:
+                              redirect('Distribucion_Contable');
+                            break;
+                    }
                 }
 
 
